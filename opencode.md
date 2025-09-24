@@ -1,4 +1,5 @@
 # OpenCode (CLI Coding Agent)
+![](https://github.com/sst/opencode/raw/dev/packages/web/src/assets/lander/screenshot.png)
 
 ## Index
 
