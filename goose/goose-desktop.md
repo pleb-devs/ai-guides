@@ -2,7 +2,7 @@
 
 > Practical, privacy-first usage of **Goose Desktop** for adversarial, secure, and cost-efficient workflows. Goose is an on-machine AI agent that uses **MCP extensions** to edit files, run commands, and automate tasks. Sessions live locally. ([Block][1])
 
-[SCREENSHOT OF GOOSE DESKTOP HOME / WELCOME]
+<img width="1789" height="1088" alt="image" src="https://github.com/user-attachments/assets/cc8d06ac-1c1d-44e8-9c78-611016ee916b" />
 
 ---
 
@@ -36,7 +36,10 @@
 - Repeatable workflows that you can turn into **recipes**.
 - Adversarial or locked-down setups where allowlists, strict permission modes, and **local models** are required. ([Block][3])
 
-[SCREENSHOT OF “SETTINGS → MODELS”]
+<img width="1333" height="626" alt="image" src="https://github.com/user-attachments/assets/033e52cb-95ba-4120-81f9-e2e89edc2f45" />
+
+<img width="1766" height="809" alt="image" src="https://github.com/user-attachments/assets/4a3bfe83-05d8-4cde-8834-d0d5d4906aed" />
+
 
 ---
 
@@ -46,22 +49,22 @@
 
 Download and install the Desktop app from the official install page. If you need the CLI later, add it separately—Desktop and CLI share config. ([Block][4])
 
-[SCREENSHOT OF DOWNLOAD/INSTALL PAGE]
+<img width="1423" height="883" alt="image" src="https://github.com/user-attachments/assets/c4d92e3e-ccb0-4827-b2a6-3d12b20c8624" />
 
 ### 2) Configure a provider
 
 On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropic, OpenRouter, OpenAI-compatible proxies like vLLM/KServe, or **local** runners such as Docker Model Runner and Ollama). Models without **tool-calling** only support chat; Goose’s tool usage requires tool-calling, so OpenAI **o1-mini** and **o1-preview** are unsupported. ([Block][5])
 
-[SCREENSHOT OF SETTINGS → PROVIDERS / WELCOME FLOW]
+<img width="1063" height="1037" alt="image" src="https://github.com/user-attachments/assets/d35d65f7-d86d-42b2-a026-8591f6d1a440" />
 
 ### 3) Harden defaults
 
 - **Permission mode:** choose **Chat Only**, **Approve**, **Smart Approve**, or **Autonomous**. Toggle in Settings or with `/mode` inside a session. Start restrictive; loosen later. ([Block][6])
-  [SCREENSHOT OF “SETTINGS → PERMISSIONS / MODE DROPDOWN”]
+  <img width="1531" height="582" alt="image" src="https://github.com/user-attachments/assets/41ea918c-7d73-4296-b318-5283a7dba699" />
 - **Extension allowlist:** restrict which MCP servers can load so Desktop and CLI stay in sync. ([Block][7])
-  [SCREENSHOT OF “SETTINGS → EXTENSIONS → ALLOWLIST”]
+  <img width="1765" height="636" alt="image" src="https://github.com/user-attachments/assets/31b4dea1-90db-49be-909c-ee6cd68ef8b8" />
 - **Fence off files:** add `.gooseignore` (project or global) to block reads, writes, and shell on sensitive paths. ([Block][8])
-  [SCREENSHOT OF “.gooseignore EXAMPLES”]
+  <img width="773" height="396" alt="image" src="https://github.com/user-attachments/assets/7251066d-d88b-44f3-809d-7955413bbe11" />
 - **Know where config lives:** `~/.config/goose/config.yaml` (Windows path documented). Desktop and CLI share this file. ([Block][9])
 
 ---
@@ -72,12 +75,12 @@ On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropi
 
 Open a new session, describe the task, **review the plan**, then approve tool runs. Keep each session focused; export transcripts for audits or PR write-ups. ([Block][10])
 
-[SCREENSHOT OF NEW SESSION + MODEL PICKER]
+<img width="1590" height="341" alt="image" src="https://github.com/user-attachments/assets/b25d9cfa-bb76-42c1-95d6-3198625cc0ae" />
 
 ### Core moves (Desktop)
 
 - **Quick file reference** with `@`; fuzzy search pops in-line. ([Block][11])
-  [SCREENSHOT OF “@ FILE PICKER”]
+  <img width="1568" height="672" alt="image" src="https://github.com/user-attachments/assets/31e068b5-0e32-401b-a07e-b3113da5685f" />
 - **Smart context:** Goose auto-compacts older turns once usage hits ~80% of the model window; tune with `GOOSE_AUTO_COMPACT_THRESHOLD`. ([Block][12])
 - **Export sessions** (currently via CLI):
 
