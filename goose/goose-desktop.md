@@ -92,11 +92,43 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
 
 ### A simple first flow
 
-1. Start a session in your repo.
-2. Ask for a codebase survey plus a small refactor plan.
-3. Approve the suggested edits (if not in Chat Only mode).
-4. Run tests; export the session to `session.md` for your PR. ([Block][6])
-  [SCREENSHOT OF DIFF/APPROVAL PREVIEW]
+**Goal**
+
+- Learn Goose’s plan → review → approve → test loop with one tiny, reversible change.
+
+**Prereqs (safe start)**
+
+- Set mode to Chat Only: `/mode chat` (or use Settings).
+- Add a minimal `.gooseignore` to fence secrets (for example: `**/.env*`, `**/secrets/**`).
+
+[SCREENSHOT OF "COMPOSER — /MODE DROPDOWN"]
+
+**Phase 1 — Survey & plan (read‑only)**
+
+- Ask: “Survey this repo. Propose one small, safe refactor with success criteria and tests to run.”
+- Ensure you understand which file(s) will change and how you’ll verify.
+
+**Phase 2 — Make one change (Approve mode)**
+
+- Switch to Approve: `/mode approve`.
+- Use `@` to reference the target file and request the smallest possible diff that meets the criteria.
+- Review the diff; approve only that edit.
+
+[SCREENSHOT OF "EDIT APPROVAL DIALOG — ONE‑FILE DIFF"]
+
+[SCREENSHOT OF "APPROVE SHELL TOOL CALL — RUN TESTS"]
+
+**Phase 3 — Verify locally**
+
+- Run the test command Goose proposed (or approve it to run via shell).
+- If tests fail, ask for the minimal fix; approve once; retest.
+
+[SCREENSHOT OF "TEST RESULTS PANEL — PASSING TESTS"]
+
+**Phase 4 — Summarize (optional)**
+
+- Ask Goose to draft a short change summary and rationale; paste into your commit message.
+- Exporting the session is optional; use it later when you want an audit trail or to help write a PR. ([Block][6])
 
 ---
 
@@ -202,23 +234,23 @@ GOOSE_DISABLE_KEYRING=1
 
 ---
 
-[1]: https://block.github.io/goose/?utm_source=chatgpt.com "goose"
-[2]: https://block.github.io/goose/docs/getting-started/using-extensions/?utm_source=chatgpt.com "Using Extensions | goose"
-[3]: https://block.github.io/goose/docs/guides/recipes/?utm_source=chatgpt.com "Recipes | goose"
-[4]: https://block.github.io/goose/docs/getting-started/installation/?utm_source=chatgpt.com "Install Goose"
-[5]: https://block.github.io/goose/docs/getting-started/providers/?utm_source=chatgpt.com "Configure LLM Provider"
-[6]: https://block.github.io/goose/docs/guides/goose-permissions/?utm_source=chatgpt.com "Goose Permission Modes"
-[7]: https://block.github.io/goose/docs/guides/allowlist/?utm_source=chatgpt.com "Goose Extension Allowlist"
-[8]: https://block.github.io/goose/docs/guides/using-gooseignore/?utm_source=chatgpt.com "Prevent Goose from Accessing Files"
-[9]: https://block.github.io/goose/docs/guides/config-file/?utm_source=chatgpt.com "Configuration File"
-[10]: https://block.github.io/goose/docs/guides/sessions/session-management/?utm_source=chatgpt.com "Session Management"
-[11]: https://block.github.io/goose/docs/guides/file-management/?utm_source=chatgpt.com "File Access and Management"
-[12]: https://block.github.io/goose/docs/guides/sessions/smart-context-management/?utm_source=chatgpt.com "Smart Context Management"
-[13]: https://block.github.io/goose/docs/tutorials/lead-worker/?utm_source=chatgpt.com "Lead/Worker Multi-Model Setup"
-[14]: https://block.github.io/goose/docs/guides/tool-router/?utm_source=chatgpt.com "Tool Router (preview)"
-[15]: https://block.github.io/goose/docs/troubleshooting/?utm_source=chatgpt.com "Troubleshooting"
-[16]: https://block.github.io/goose/docs/guides/environment-variables/?utm_source=chatgpt.com "Environment Variables"
-[17]: https://block.github.io/goose/docs/guides/using-goosehints/?utm_source=chatgpt.com "Providing Hints to Goose"
-[18]: https://block.github.io/goose/docs/tutorials/langfuse/?utm_source=chatgpt.com "Observability with Langfuse"
-[19]: https://block.github.io/goose/docs/guides/managing-tools/tool-permissions/?utm_source=chatgpt.com "Managing Tool Permissions"
-[20]: https://block.github.io/goose/docs/tutorials/isolated-development-environments/?utm_source=chatgpt.com "Isolated Development Environments"
+[1]: https://block.github.io/goose/ "goose"
+[2]: https://block.github.io/goose/docs/getting-started/using-extensions/ "Using Extensions | goose"
+[3]: https://block.github.io/goose/docs/guides/recipes/ "Recipes | goose"
+[4]: https://block.github.io/goose/docs/getting-started/installation/ "Install Goose"
+[5]: https://block.github.io/goose/docs/getting-started/providers/ "Configure LLM Provider"
+[6]: https://block.github.io/goose/docs/guides/goose-permissions/ "Goose Permission Modes"
+[7]: https://block.github.io/goose/docs/guides/allowlist/ "Goose Extension Allowlist"
+[8]: https://block.github.io/goose/docs/guides/using-gooseignore/ "Prevent Goose from Accessing Files"
+[9]: https://block.github.io/goose/docs/guides/config-file/ "Configuration File"
+[10]: https://block.github.io/goose/docs/guides/sessions/session-management/ "Session Management"
+[11]: https://block.github.io/goose/docs/guides/file-management/ "File Access and Management"
+[12]: https://block.github.io/goose/docs/guides/sessions/smart-context-management/ "Smart Context Management"
+[13]: https://block.github.io/goose/docs/tutorials/lead-worker/ "Lead/Worker Multi-Model Setup"
+[14]: https://block.github.io/goose/docs/guides/tool-router/ "Tool Router (preview)"
+[15]: https://block.github.io/goose/docs/troubleshooting/ "Troubleshooting"
+[16]: https://block.github.io/goose/docs/guides/environment-variables/ "Environment Variables"
+[17]: https://block.github.io/goose/docs/guides/using-goosehints/ "Providing Hints to Goose"
+[18]: https://block.github.io/goose/docs/tutorials/langfuse/ "Observability with Langfuse"
+[19]: https://block.github.io/goose/docs/guides/managing-tools/tool-permissions/ "Managing Tool Permissions"
+[20]: https://block.github.io/goose/docs/tutorials/isolated-development-environments/ "Isolated Development Environments"
