@@ -65,7 +65,9 @@ On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropi
   <img width="1765" height="636" alt="image" src="https://github.com/user-attachments/assets/31b4dea1-90db-49be-909c-ee6cd68ef8b8" />
 - **Fence off files:** add `.gooseignore` (project or global) to block reads, writes, and shell on sensitive paths. ([Block][8])
   <img width="773" height="396" alt="image" src="https://github.com/user-attachments/assets/7251066d-d88b-44f3-809d-7955413bbe11" />
-- **Know where config lives:** `~/.config/goose/config.yaml` (Windows path documented). Desktop and CLI share this file. ([Block][9])
+- **Know where config lives:** `~/.config/goose/config.yaml` (or find it in the ui from below img). Both Desktop and CLI share this file. ([Block][9])
+  <img width="703" height="382" alt="image" src="https://github.com/user-attachments/assets/ff7377bd-1648-4e53-935e-8757957c8e71" />
+
 
 ---
 
@@ -82,13 +84,11 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
 - **Quick file reference** with `@`; fuzzy search pops in-line. ([Block][11])
   <img width="1568" height="672" alt="image" src="https://github.com/user-attachments/assets/31e068b5-0e32-401b-a07e-b3113da5685f" />
 - **Smart context:** Goose auto-compacts older turns once usage hits ~80% of the model window; tune with `GOOSE_AUTO_COMPACT_THRESHOLD`. ([Block][12])
-- **Export sessions** (currently via CLI):
-
+- **Export sessions** (currently via CLI ONLY) ([Block][10])
   ```bash
   goose session export   # interactive picker
   ```
-
-  ([Block][10])
+  <img width="1466" height="891" alt="image" src="https://github.com/user-attachments/assets/5aac07bd-e9ec-4349-87ba-581635aa3d75" />
 
 ### A simple first flow
 
