@@ -83,36 +83,61 @@ Pick OpenAI, Anthropic, OpenRouter, an OpenAI-compatible proxy, or local runners
 
 ## Beginner usage
 
-### Start an interactive session
+### A simple first flow (interactive)
+
+**Goal**
+
+- Learn Goose’s plan → review → approve → test loop in the terminal with one tiny, reversible change.
+
+**Prereqs (safe start)**
+
+- Work in your project root. Add a minimal `.gooseignore` to fence secrets (e.g., `**/.env*`, `**/secrets/**`). ([Block][8])
+- Start in **Approve** mode so you can read files but still gate edits/shell:
 
 ```bash
 cd /your/project
-goose session
+GOOSE_MODE=approve goose session
 ```
 
-Use the chat loop to plan and execute changes under your chosen permission mode. ([Block][10])
+**Phase 1 — Survey & plan (no edits yet)**
 
-### Run one-off tasks (headless)
+- Ask: “Survey this repo. Propose one small, safe refactor with success criteria and tests to run.”
+- Approve safe file reads if prompted; do not approve any edits yet. ([Block][10])
 
-```bash
-# Inline text
-goose run -t "Generate a changelog from last tag to HEAD"
+**Phase 2 — Make one change (Approve)**
 
-# From an instruction file
-goose run -i instructions.md
-```
+- Ask for the smallest possible diff to meet the criteria.
+- When prompted, approve exactly one edit tool call; decline anything out of scope. ([Block][6])
 
-`goose run` starts a new session, executes, and exits—ideal for scripts or CI jobs. ([Block][22])
+**Phase 3 — Verify locally**
 
-### Export sessions
+- Approve the shell call to run the proposed test command (or run it yourself in another terminal). ([Block][10])
+- If tests fail, ask for the minimal fix; approve once; retest.
+
+**Phase 4 — Summarize (optional)**
+
+- Ask Goose to draft a short change summary and rationale; paste into your commit message.
+- Exporting is optional for audits or later PR authoring:
 
 ```bash
 goose session export   # interactive picker
 ```
 
-Produces Markdown for PRs, reviews, or audits. ([Block][10])
-
 [SCREENSHOT OF TERMINAL EXPORT PROMPT]
+
+### A second flow (headless, optional)
+
+Use `goose run` for non-interactive tasks (documentation checks, standard generators) where no approvals are needed.
+
+```bash
+# Inline text
+GOOSE_MODE=chat goose run -t "Generate a changelog from last tag to HEAD"
+
+# From an instruction file
+GOOSE_MODE=chat goose run -i instructions.md
+```
+
+`goose run` starts a new session, executes, and exits—ideal for scripts or CI jobs. Keep it in **Chat Only** for beginners to avoid unintended edits; move to **Approve**/**Autonomous** later when you’ve locked down tools. ([Block][22])
 
 ---
 
@@ -246,21 +271,21 @@ goose acp
 
 ---
 
-[4]: https://block.github.io/goose/docs/getting-started/installation/?utm_source=chatgpt.com "Install Goose"
-[5]: https://block.github.io/goose/docs/getting-started/providers/?utm_source=chatgpt.com "Configure LLM Provider"
-[6]: https://block.github.io/goose/docs/guides/goose-permissions/?utm_source=chatgpt.com "Goose Permission Modes"
-[7]: https://block.github.io/goose/docs/guides/allowlist/?utm_source=chatgpt.com "Goose Extension Allowlist"
-[8]: https://block.github.io/goose/docs/guides/using-gooseignore/?utm_source=chatgpt.com "Prevent Goose from Accessing Files"
-[9]: https://block.github.io/goose/docs/guides/config-file/?utm_source=chatgpt.com "Configuration File"
-[10]: https://block.github.io/goose/docs/guides/sessions/session-management/?utm_source=chatgpt.com "Session Management"
-[12]: https://block.github.io/goose/docs/guides/sessions/smart-context-management/?utm_source=chatgpt.com "Smart Context Management"
-[13]: https://block.github.io/goose/docs/tutorials/lead-worker/?utm_source=chatgpt.com "Lead/Worker Multi-Model Setup"
-[15]: https://block.github.io/goose/docs/troubleshooting/?utm_source=chatgpt.com "Troubleshooting"
-[16]: https://block.github.io/goose/docs/guides/environment-variables/?utm_source=chatgpt.com "Environment Variables"
-[17]: https://block.github.io/goose/docs/guides/using-goosehints/?utm_source=chatgpt.com "Providing Hints to Goose"
-[20]: https://block.github.io/goose/docs/tutorials/isolated-development-environments/?utm_source=chatgpt.com "Isolated Development Environments"
-[21]: https://block.github.io/goose/docs/guides/goose-cli-commands/?utm_source=chatgpt.com "CLI Commands"
-[22]: https://block.github.io/goose/docs/guides/running-tasks/?utm_source=chatgpt.com "Running Tasks"
-[23]: https://block.github.io/goose/docs/tutorials/cicd/?utm_source=chatgpt.com "CI/CD Environments"
-[24]: https://block.github.io/goose/docs/guides/managing-projects/?utm_source=chatgpt.com "Managing Projects"
-[25]: https://block.github.io/goose/docs/guides/cli-providers/?utm_source=chatgpt.com "CLI Providers"
+[4]: https://block.github.io/goose/docs/getting-started/installation/ "Install Goose"
+[5]: https://block.github.io/goose/docs/getting-started/providers/ "Configure LLM Provider"
+[6]: https://block.github.io/goose/docs/guides/goose-permissions/ "Goose Permission Modes"
+[7]: https://block.github.io/goose/docs/guides/allowlist/ "Goose Extension Allowlist"
+[8]: https://block.github.io/goose/docs/guides/using-gooseignore/ "Prevent Goose from Accessing Files"
+[9]: https://block.github.io/goose/docs/guides/config-file/ "Configuration File"
+[10]: https://block.github.io/goose/docs/guides/sessions/session-management/ "Session Management"
+[12]: https://block.github.io/goose/docs/guides/sessions/smart-context-management/ "Smart Context Management"
+[13]: https://block.github.io/goose/docs/tutorials/lead-worker/ "Lead/Worker Multi-Model Setup"
+[15]: https://block.github.io/goose/docs/troubleshooting/ "Troubleshooting"
+[16]: https://block.github.io/goose/docs/guides/environment-variables/ "Environment Variables"
+[17]: https://block.github.io/goose/docs/guides/using-goosehints/ "Providing Hints to Goose"
+[20]: https://block.github.io/goose/docs/tutorials/isolated-development-environments/ "Isolated Development Environments"
+[21]: https://block.github.io/goose/docs/guides/goose-cli-commands/ "CLI Commands"
+[22]: https://block.github.io/goose/docs/guides/running-tasks/ "Running Tasks"
+[23]: https://block.github.io/goose/docs/tutorials/cicd/ "CI/CD Environments"
+[24]: https://block.github.io/goose/docs/guides/managing-projects/ "Managing Projects"
+[25]: https://block.github.io/goose/docs/guides/cli-providers/ "CLI Providers"
