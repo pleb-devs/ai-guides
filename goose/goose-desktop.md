@@ -65,7 +65,7 @@ On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropi
   <img width="1765" height="636" alt="image" src="https://github.com/user-attachments/assets/31b4dea1-90db-49be-909c-ee6cd68ef8b8" />
 - **Fence off files:** add `.gooseignore` (project or global) to block reads, writes, and shell on sensitive paths. ([Block][8])
   <img width="773" height="396" alt="image" src="https://github.com/user-attachments/assets/7251066d-d88b-44f3-809d-7955413bbe11" />
-- **Know where config lives:** `~/.config/goose/config.yaml` (or find it in the ui from below img). Both Desktop and CLI share this file. ([Block][9])
+- **Know where config lives:** `~/.config/goose/config.yaml` (or find in ui from below img). Both Desktop and CLI share this file. ([Block][9])
   <img width="703" height="382" alt="image" src="https://github.com/user-attachments/assets/ff7377bd-1648-4e53-935e-8757957c8e71" />
 
 
@@ -98,37 +98,34 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
 
 **Prereqs (safe start)**
 
-- Set mode to Chat Only: `/mode chat` (or use Settings).
-- Add a minimal `.gooseignore` to fence secrets (for example: `**/.env*`, `**/secrets/**`).
+- Set mode to Manual Only (All tools require human approval)
+  
+  <img width="380" height="225" alt="image" src="https://github.com/user-attachments/assets/cd4b3e78-0017-4f39-96af-8039ef57752c" />
+- Add a minimal `.gooseignore` to fence secrets (for example: `**/.env*`, `**/secrets/**`)
+ 
+  <img width="607" height="511" alt="image" src="https://github.com/user-attachments/assets/ee30bc9a-de32-456b-863d-2585664c73ae" />
 
-[SCREENSHOT OF "COMPOSER — /MODE DROPDOWN"]
 
-**Phase 1 — Survey & plan (read‑only)**
+**Phase 1 — Survey & plan**
 
 - Ask: “Survey this repo. Propose one small, safe refactor with success criteria and tests to run.”
 - Ensure you understand which file(s) will change and how you’ll verify.
 
-**Phase 2 — Make one change (Approve mode)**
+  <img width="1607" height="1091" alt="image" src="https://github.com/user-attachments/assets/b9980b11-b416-40fc-8e05-aeb1413fd8f6" />
 
-- Switch to Approve: `/mode approve`.
-- Use `@` to reference the target file and request the smallest possible diff that meets the criteria.
-- Review the diff; approve only that edit.
 
-[SCREENSHOT OF "EDIT APPROVAL DIALOG — ONE‑FILE DIFF"]
+**Phase 2 — Make one change**
 
-[SCREENSHOT OF "APPROVE SHELL TOOL CALL — RUN TESTS"]
+- Approve (or reject and iterate on) Goose's suggested edit's
+- Review the diff; ask for any needed changes.
 
-**Phase 3 — Verify locally**
+https://github.com/user-attachments/assets/54604dff-6c99-4369-bb93-3ab76c3d2b0e
 
-- Run the test command Goose proposed (or approve it to run via shell).
-- If tests fail, ask for the minimal fix; approve once; retest.
-
-[SCREENSHOT OF "TEST RESULTS PANEL — PASSING TESTS"]
-
-**Phase 4 — Summarize (optional)**
-
+**Phase 4 — Verify & Summarize**
+- Review the changes manually and run tests if you have them
 - Ask Goose to draft a short change summary and rationale; paste into your commit message.
 - Exporting the session is optional; use it later when you want an audit trail or to help write a PR. ([Block][6])
+  *See **Export sessions** above*
 
 ---
 
