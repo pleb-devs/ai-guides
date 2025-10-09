@@ -17,7 +17,7 @@
 - [Pro usage](#pro-usage)
   - [Lead/worker & model switching](#leadworker--model-switching)
   - [Extensions (MCP)](#extensions-mcp)
-  - [Recipes](#recipes)
+  - [Run Tasks and Plans](#run-tasks-and-plans)
 - [Cost savings guide](#cost-savings-guide)
 - [Privacy guide](#privacy-guide)
 - [Security guide](#security-guide)
@@ -53,13 +53,13 @@ Download and install the Desktop app from the official install page. If you need
 
 ### 2) Configure a provider
 
-On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropic, OpenRouter, OpenAI-compatible proxies like vLLM/KServe, or **local** runners such as Docker Model Runner and Ollama). Models without **tool-calling** only support chat; Goose’s tool usage requires tool-calling, so OpenAI **o1-mini** and **o1-preview** are unsupported. ([Block][5])
+On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropic, OpenRouter, OpenAI-compatible proxies like vLLM/KServe, or **local** runners such as Docker Model Runner and Ollama). Models without **tool-calling** can chat but won’t use tools. ([Block][5])
 
 <img width="1063" height="1037" alt="image" src="https://github.com/user-attachments/assets/d35d65f7-d86d-42b2-a026-8591f6d1a440" />
 
 ### 3) Harden defaults
 
-- **Permission mode:** choose **Chat Only**, **Approve**, **Smart Approve**, or **Autonomous**. Toggle in Settings or with `/mode` inside a session. Start restrictive; loosen later. ([Block][6])
+- **Permission mode:** choose **Chat Only**, **Manual**, **Smart Approval**, or **Completely Autonomous**. Set in **Settings → Permissions**. Start restrictive; loosen later. ([Block][6])
   <img width="1531" height="582" alt="image" src="https://github.com/user-attachments/assets/41ea918c-7d73-4296-b318-5283a7dba699" />
 - **Extension allowlist:** restrict which MCP servers can load so Desktop and CLI stay in sync. ([Block][7])
   <img width="1765" height="636" alt="image" src="https://github.com/user-attachments/assets/31b4dea1-90db-49be-909c-ee6cd68ef8b8" />
@@ -84,7 +84,7 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
 - **Quick file reference** with `@`; fuzzy search pops in-line. ([Block][11])
   <img width="1568" height="672" alt="image" src="https://github.com/user-attachments/assets/31e068b5-0e32-401b-a07e-b3113da5685f" />
 - **Smart context:** Goose auto-compacts older turns once usage hits ~80% of the model window; tune with `GOOSE_AUTO_COMPACT_THRESHOLD`. ([Block][12])
-- **Export sessions** (currently via CLI ONLY) ([Block][10])
+- **Export sessions** (Desktop export not available; use CLI). See Exporting Sessions. ([Block][10])
   ```bash
   goose session export   # interactive picker
   ```
@@ -98,7 +98,7 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
 
 **Prereqs (safe start)**
 
-- Set mode to Manual Only (All tools require human approval)
+- Set mode to **Manual** (approval prompts for write tools)
   
   <img width="380" height="225" alt="image" src="https://github.com/user-attachments/assets/cd4b3e78-0017-4f39-96af-8039ef57752c" />
 - Add a minimal `.gooseignore` to fence secrets (for example: `**/.env*`, `**/secrets/**`)
@@ -133,9 +133,7 @@ https://github.com/user-attachments/assets/54604dff-6c99-4369-bb93-3ab76c3d2b0e
 
 ### Lead/worker & model switching
 
-Use a strong **lead** model for planning and a cheaper **worker** for execution. Goose supports multi-model strategies and dynamic switching (AutoPilot/Planning Mode vary by setup). Configure in Settings or via environment variables. ([Block][13])
-
-[SCREENSHOT OF “SETTINGS → MODELS (LEAD/WORKER)”]
+Use a strong **lead** model for planning and a cheaper **worker** for execution if supported by your setup. Configure provider/model settings as documented. **Note (last reviewed October 9, 2025):** not documented as a dedicated Desktop UI feature; rely on provider/model settings rather than a “Lead/Worker” screen. ([Block][13])
 
 ### Extensions (MCP)
 
@@ -149,17 +147,15 @@ Extensions power file edits, shell, browsers, and more. ([Block][2])
 
 [SCREENSHOT OF “EXTENSIONS → ADD EXTENSION”]
 
-### Recipes
+### Run Tasks and Plans
 
-Turn repeatable work into **recipes** (YAML/JSON). Capture from a session, then replay on Desktop or CLI. ([Block][3])
-
-[SCREENSHOT OF “RECIPES → CREATE FROM SESSION”]
+Structure repeatable work with tasks and plans from the Guides. You can capture steps and run them via the CLI; Desktop executes per-session instructions but does not document a dedicated “Recipes” screen. **Last reviewed:** October 9, 2025. ([Block][3])
 
 ---
 
 ## Cost savings guide
 
-- **Lead/worker split:** plan with a premium model, execute with a cheaper worker. ([Block][13])
+- **Lead/worker split:** plan with a premium model, execute with a cheaper worker (where supported). ([Block][13])
 - **Go local when quality allows:** Docker Model Runner or Ollama keeps spend at $0 API. ([Block][5])
 - **Compact early:** rely on auto-compaction (~80% by default) or set a lower threshold for long sessions. ([Block][12])
 - **Limit extensions:** enable only what you need; fewer tools reduce overhead. Consider **Tool Router (preview)** if it fits your stack. ([Block][14])
@@ -175,13 +171,13 @@ Turn repeatable work into **recipes** (YAML/JSON). Capture from a session, then 
 - **Avoid repeating sensitive context:** use **`.goosehints`** (project/global) for stable rules and combine with Memory as needed. ([Block][17])
 - **Observability (opt-in):** if you enable **Langfuse**, point it to your own instance/region. ([Block][18])
 
-[SCREENSHOT OF “HISTORY → EXPORT SESSION AS MARKDOWN”]
+
 
 ---
 
 ## Security guide
 
-- **Pick the right mode:** use **Chat Only** for analysis, **Approve/Smart Approve** for normal coding, and reserve **Autonomous** for sandboxes. ([Block][6])
+- **Pick the right mode:** use **Chat Only** for analysis, **Manual/Smart Approval** for normal coding, and reserve **Completely Autonomous** for sandboxes. ([Block][6])
 - **Allowlist extensions:** block unknown MCP servers across Desktop and CLI. ([Block][7])
 - **Tool-level permissions:** override risky tools (e.g., destructive shell commands) on a per-tool basis. ([Block][19])
 - **Isolate work:** run high-risk tasks in containers (see the **container-use** tutorial) or run models via Docker Model Runner. ([Block][20])
@@ -227,7 +223,7 @@ GOOSE_DISABLE_KEYRING=1
 
 ---
 
-**Changelog note:** This guide reflects Goose docs as of **October 4, 2025**. Re-check provider support, permission defaults, and extension security before pinning workflows. ([Block][5])
+**Changelog note:** This guide reflects Goose docs as of **October 9, 2025**. Re-check provider support, permission defaults, and extension security before pinning workflows. ([Block][5])
 
 ---
 
