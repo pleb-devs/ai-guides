@@ -145,7 +145,7 @@ npx -y mcp-remote https://gitmcp.io/docs
 
 Extensions power file edits, shell, browsers, and more. ([Block][2])
 
-[SCREENSHOT OF “EXTENSIONS → ADD EXTENSION”]
+<img width="1266" height="959" alt="image" src="https://github.com/user-attachments/assets/94c48965-cabd-4b44-84c5-cccf9338ed20" />
 
 ### Run Tasks and Plans
 
