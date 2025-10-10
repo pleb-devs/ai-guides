@@ -157,6 +157,8 @@ Extensions power file edits, shell, browsers, and more. ([Block][2])
 
 - **Parameters.** If a recipe includes parameters, Desktop prompts for required values when opened from a deep link. Advanced flows (like subrecipes and parallel execution) are supported by the Recipes system; see the guide for details. ([Block][3])
 
+  <img width="941" height="478" alt="Screenshot 2025-10-10 at 8 47 38 AM" src="https://github.com/user-attachments/assets/f277b77a-f5a3-4d21-b803-3266d2380c6d" />
+
 ---
 
 ## Cost savings guide
