@@ -19,7 +19,7 @@ For helpful tutorials, check out the [Goose YouTube channel](https://www.youtube
 - [Pro usage](#pro-usage)
   - [Lead/worker & model switching](#leadworker--model-switching)
   - [Extensions (MCP)](#extensions-mcp)
-  - [Run Tasks and Plans](#run-tasks-and-plans)
+  - [Recipes, Tasks, and Plans](#recipes-tasks-and-plans)
 - [Cost savings guide](#cost-savings-guide)
 - [Privacy guide](#privacy-guide)
 - [Security guide](#security-guide)
@@ -149,9 +149,13 @@ Extensions power file edits, shell, browsers, and more. ([Block][2])
 
 <img width="1266" height="959" alt="image" src="https://github.com/user-attachments/assets/94c48965-cabd-4b44-84c5-cccf9338ed20" />
 
-### Run Tasks and Plans
+### Recipes, Tasks, and Plans
 
-Structure repeatable work with tasks and plans from the Guides. You can capture steps and run them via the CLI; Desktop executes per-session instructions but does not document a dedicated “Recipes” screen. **Last reviewed:** October 9, 2025. ([Block][3])
+- **Recipes = reusable sessions.** They bundle your extensions, instructions, and settings so anyone can launch a pre‑configured session via a deep link. Perfect for code review assistants, migrations, or audits. ([Block][3])
+
+- **Create from Desktop.** In an active session, open **Settings → Make Agent from this Session**. Name and describe it, edit the generated instructions, optionally add an Initial Prompt, and add **Activities** (common prompts shown at the top). Click **Copy Link** to share; the “Open Goose” link launches Desktop with that recipe preloaded. To change it later, use **Settings → View Recipe**; copying a new link produces a new recipe. ([Block][3])
+
+- **Parameters.** If a recipe includes parameters, Desktop prompts for required values when opened from a deep link. Advanced flows (like subrecipes and parallel execution) are supported by the Recipes system; see the guide for details. ([Block][3])
 
 ---
 
