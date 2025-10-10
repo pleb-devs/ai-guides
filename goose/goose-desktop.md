@@ -135,7 +135,7 @@ https://github.com/user-attachments/assets/54604dff-6c99-4369-bb93-3ab76c3d2b0e
 
 ### Lead/worker & model switching
 
-Use a strong **lead** model for planning and a cheaper **worker** for execution if supported by your setup. Configure provider/model settings as documented. **Note (last reviewed October 9, 2025):** not documented as a dedicated Desktop UI feature; rely on provider/model settings rather than a “Lead/Worker” screen. ([Block][13])
+Use a strong **lead** model for planning and a cheaper **worker** for execution if supported by your setup. Configure provider/model settings as documented. Not documented as a dedicated Desktop UI feature; rely on provider/model settings rather than a “Lead/Worker” screen. ([Block][13])
 
 ### Extensions (MCP)
 
@@ -231,7 +231,7 @@ GOOSE_DISABLE_KEYRING=1
 
 ---
 
-**Changelog note:** This guide reflects Goose docs as of **October 9, 2025**. Re-check provider support, permission defaults, and extension security before pinning workflows. ([Block][5])
+
 
 ---
 
