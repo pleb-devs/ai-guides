@@ -2,6 +2,8 @@
 
 > Practical, privacy-first usage of the **Goose CLI** for headless tasks, CI/CD, and automation. Desktop and CLI share the same configuration and extensions. ([Block][4])
 
+For helpful tutorials, check out the [Goose YouTube channel](https://www.youtube.com/@goose-oss) (@goose/).
+
 [SCREENSHOT OF TERMINAL RUNNING `goose --help`]
 
 ---

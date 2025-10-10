@@ -2,6 +2,8 @@
 
 > Practical, privacy-first usage of **Goose Desktop** for adversarial, secure, and cost-efficient workflows. Goose is an on-machine AI agent that uses **MCP extensions** to edit files, run commands, and automate tasks. Sessions live locally. ([Block][1])
 
+For helpful tutorials, check out the [Goose YouTube channel](https://www.youtube.com/@goose-oss) (@goose/).
+
 <img width="1789" height="1088" alt="image" src="https://github.com/user-attachments/assets/cc8d06ac-1c1d-44e8-9c78-611016ee916b" />
 
 ---
