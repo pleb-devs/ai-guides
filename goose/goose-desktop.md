@@ -190,7 +190,7 @@ Extensions power file edits, shell, browsers, and more. ([Block][2])
 - **Tool-level permissions:** override risky tools (e.g., destructive shell commands) on a per-tool basis. ([Block][19])
 - **Isolate work:** run high-risk tasks in containers (see the **container-use** tutorial) or run models via Docker Model Runner. ([Block][20])
 
-[SCREENSHOT OF “PERMISSIONS → TOOL PERMISSIONS TABLE”]
+<img width="1589" height="861" alt="image" src="https://github.com/user-attachments/assets/c9ba3afa-f7e3-4a48-aa8b-5fdbd85dc1f3" />
 
 ---
 
