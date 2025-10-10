@@ -168,7 +168,7 @@ Extensions power file edits, shell, browsers, and more. ([Block][2])
 - **Compact early:** rely on auto-compaction (~80% by default) or set a lower threshold for long sessions. ([Block][12])
 - **Limit extensions:** enable only what you need; fewer tools reduce overhead. Consider **Tool Router (preview)** if it fits your stack. ([Block][14])
 
-[SCREENSHOT OF “SELECT MODELS (CHEAPER WORKER)”]
+<img width="516" height="814" alt="image" src="https://github.com/user-attachments/assets/f707b081-b9ec-41f3-85da-454d0fdcf157" />
 
 ---
 
