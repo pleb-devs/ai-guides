@@ -1,23 +1,38 @@
 # Repository Guidelines
 
+This repository hosts practical guides for coding agents and AI clients. Follow these rules to keep contributions clear, consistent, and easy to review.
+
 ## Project Structure & Module Organization
-All published guides live at the repository root as Markdown files named after the tool, e.g., `opencode.md`. Keep filenames lowercase with hyphens and match the title case inside the document. `README.md` serves as the index and must list every guide you add or retire. Use the `goose/` directory for scratchpads or staging assets that have not been promoted; once guidance is ready, move it into a root-level Markdown file and remove the draft.
+- Guides live at the repo root and in topic folders (e.g., `goose/`). Examples: `opencode.md`, `goose/goose-cli.md`, `goose/goose-desktop.md`.
+- Use kebab-case filenames and nest by vendor/tool. Update `README.md` to index new guides.
 
 ## Build, Test, and Development Commands
-Run ad-hoc linting before pushing:
-
-```bash
-npx markdownlint-cli2 "**/*.md"
-npx prettier --check "**/*.md"
-```
-
-`markdownlint-cli2` enforces heading order and list spacing, while `prettier --check` confirms consistent wrapping. When drafting new content, preview locally with any Markdown viewer (for example, `code opencode.md`) to confirm images render from their canonical URLs.
+- No build step; Markdown only. Preview with your editor’s Markdown view (e.g., VS Code: `Cmd+Shift+V`).
+- Helpful checks:
+  - `rg --files` — list all docs.
+  - `rg -n 'TODO|TBD'` — find placeholders before submitting.
 
 ## Coding Style & Naming Conventions
-Use ATX headings (`#`, `##`, `###`) and keep sections under roughly 120 words to stay scannable. Prefer second-person instructional voice and active verbs. Highlight callouts with bold text (e.g., **Tip**) instead of blockquotes. Indent nested lists by two spaces and leave a blank line before fenced code blocks. Store external links as inline Markdown; avoid raw URLs in the prose.
+- Headings: ATX (`#`), Title Case for H1, sentence case for others.
+- Sections: follow the README “Guide structure” (Overview, Setup, Beginner usage, Pro usage, Cost savings, Privacy, Security; Appendix if needed).
+- Lists: `-` bullets; keep bullets short and action‑oriented.
+- Code: fenced blocks with language hints; commands in bash blocks.
+- Links: prefer relative links within the repo; use descriptive text.
 
 ## Testing Guidelines
-Treat linting as the minimum gate. When a guide references shell commands, execute them in a scratch environment to confirm they work or annotate prerequisites. Validate external links with `npx markdown-link-check README.md` (swap in the file you touched). Note the last validation date inside the affected section if the tool’s pricing or capabilities change frequently.
+- Self‑check before PR:
+  - Required sections exist and are ordered per the template.
+  - Internal anchors work (e.g., `[Setup](#setup)`).
+  - Verify local links with: `rg -n "\[(.+)\]\((?!http|#)" -- **/*.md` and fix paths.
+  - Proofread; ensure images (if any) live under `assets/` and use relative paths.
 
 ## Commit & Pull Request Guidelines
-Follow the existing history by keeping commit subjects short Title Case statements (e.g., `Update README.md`). Group related edits into a single commit so reviewers can skim the diff per guide. For pull requests, include a bullet summary of the guide updates, a checklist of verification commands (`markdownlint`, `prettier`, link checks), and links to upstream docs you referenced. Add screenshots only when UI changes are central to the update; otherwise link to canonical assets. Request review when you introduce new workflows, pricing guidance, or security recommendations.
+- Commits: concise, imperative mood (e.g., `add goose cli flow`). Prefix `docs:` if helpful; Conventional Commits not required.
+- PRs must include: 1–2 sentence summary, list of changed guides, linked issues (if any), and screenshots/GIFs when UI output matters. Keep diffs focused.
+
+## Security & Configuration Tips
+- Never commit secrets, tokens, or private URLs. Use placeholders like `YOUR_API_KEY` and sample `.env` patterns. Redact IDs in screenshots.
+
+## Agent‑Specific Instructions
+- When adding a new tool guide, mirror existing examples (`goose/*`, `opencode.md`) and add it to the “Guides” list in `README.md`.
+

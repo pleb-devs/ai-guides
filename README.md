@@ -14,3 +14,9 @@ Each guide follows the same consistent sections so you can skim or dive deep:
 
 ## Guides
 - **OpenCode (CLI coding agent)** → [opencode.md](./opencode.md)
+- **Goose Desktop** → [goose/goose-desktop.md](./goose/goose-desktop.md)
+- **Goose CLI** → [goose/goose-cli.md](./goose/goose-cli.md)
+- **Goose + Ollama Integration** → [goose/goose-ollama.md](./goose/goose-ollama.md)
+- **Ollama Desktop (local model host)** → [ollama/ollama-desktop.md](./ollama/ollama-desktop.md)
+- **Ollama CLI (local model host)** → [ollama/ollama-cli.md](./ollama/ollama-cli.md)
+- **Ollama → Goose Integration** → [ollama/ollama-goose.md](./ollama/ollama-goose.md)
