@@ -21,6 +21,8 @@
 
 Point Goose to Ollama via the OpenAI‑compatible interface at `/v1` (works broadly) or a native Ollama provider if available in your build.
 
+<img width="1144" height="709" alt="image" src="https://github.com/user-attachments/assets/ddf3a50c-d530-489e-a36c-bb90bb0399e5" />
+
 ---
 
 ## Setup
@@ -58,6 +60,8 @@ goose session --name local-model
 1) Verify Ollama is serving: `curl http://localhost:11434/api/generate -d '{"model":"llama3","prompt":"hi"}'`
 2) Create a new Goose session selecting your Ollama-backed provider.
 3) Send a short prompt; confirm responses are fast and consistent.
+
+<img width="1155" height="713" alt="image" src="https://github.com/user-attachments/assets/0a95c820-4dab-4bf0-b2dd-bc9cd7b6a9a7" />
 
 ---
 
