@@ -21,6 +21,8 @@
 
 Ollama serves models on `http://localhost:11434`. Goose can connect via Ollama’s OpenAI‑compatible interface at `/v1` using your local model name.
 
+<img width="1524" height="1086" alt="image" src="https://github.com/user-attachments/assets/a4eb4c23-409e-47c5-aa46-0eb8bb7fc0fe" />
+
 ---
 
 ## Setup
@@ -60,6 +62,8 @@ goose session --name local-ollama
 1) Confirm `ollama run llama3` is active.
 2) Create a new Goose session using the OpenAI‑compatible provider.
 3) Prompt once; verify latency and correctness.
+
+<img width="1400" height="972" alt="image" src="https://github.com/user-attachments/assets/58be1972-44cf-4c7b-b3a1-cfab2d8c8ea6" />
 
 ---
 
