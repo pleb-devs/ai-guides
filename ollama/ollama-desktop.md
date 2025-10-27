@@ -36,6 +36,8 @@
 - Reuse the same local models across apps (Goose Desktop/CLI, editors, scripts).
 - Control versions and performance per device.
 
+<img width="808" height="610" alt="Screenshot 2025-10-27 at 6 57 34 AM" src="https://github.com/user-attachments/assets/f88f7e31-e1ca-4c39-bcab-8cc984ceea9e" />
+
 ---
 
 ## Setup
@@ -63,6 +65,8 @@ Confirm the API is live:
 curl http://localhost:11434/api/generate \
   -d '{"model":"llama3","prompt":"Say hello"}'
 ```
+
+<img width="962" height="710" alt="image" src="https://github.com/user-attachments/assets/67127c7e-e82c-4934-bf65-b4887ca9167a" />
 
 To point an agent (e.g., Goose) at Ollama, use `http://localhost:11434` and the exact model name (e.g., `llama3`). Many tools also support an OpenAI‑compatible base URL at `http://localhost:11434/v1`.
 
