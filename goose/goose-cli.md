@@ -68,7 +68,9 @@ Models without tool‑calling can chat but won’t use extensions.
 
 - Permission mode: choose Chat Only, Approve Mode, Smart Approval,
   or Completely Autonomous. In the CLI, Approve Mode shows
-  Allow/Deny prompts for write‑classified tools. ([Block][4])
+  Allow/Deny prompts for write-classified tools. ([Block][4]) Watch the
+  [Goose Permission Modes Explained](https://www.youtube.com/watch?v=bMVFFnPS_Uk)
+  video for a walkthrough of each option.
 - Extension allowlist: restrict which MCP servers can load. ([Block][5])
 - `.gooseignore`: fence secrets and infra paths. ([Block][6])
 - Shared config path: `~/.config/goose/config.yaml`. ([Block][7])

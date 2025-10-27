@@ -62,6 +62,8 @@ On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropi
 ### 3) Harden defaults
 
 - **Permission mode:** choose **Chat Only**, **Manual**, **Smart Approval**, or **Completely Autonomous**. Set in **Settings → Permissions**. Start restrictive; loosen later. ([Block][6])
+  Watch the [Goose Permission Modes Explained](https://www.youtube.com/watch?v=bMVFFnPS_Uk)
+  video for a walkthrough of each option.
   <img width="1531" height="582" alt="image" src="https://github.com/user-attachments/assets/41ea918c-7d73-4296-b318-5283a7dba699" />
 - **Extension allowlist:** restrict which MCP servers can load so Desktop and CLI stay in sync. ([Block][7])
   <img width="1765" height="636" alt="image" src="https://github.com/user-attachments/assets/31b4dea1-90db-49be-909c-ee6cd68ef8b8" />
