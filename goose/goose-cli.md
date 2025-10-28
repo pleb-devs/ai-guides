@@ -218,6 +218,15 @@ goose projects    # browse all projects
 
 See Managing Projects. ([Block][18])
 
+### Subagents
+
+Subagents are reusable helpers with their own instructions and tool
+permissions. Launch them inside a session or recipe to delegate
+surveying, implementation, or QA steps without leaving the current
+context. Refer to the Subagents guide for schema and workflows.
+([Block][20]) Watch the [Goose Subagents walkthrough](https://www.youtube.com/watch?v=Uk4TtJUykK4)
+video for a quick demo.
+
 ### CLI providers
 
 Use existing subscriptions (Claude Code, Cursor Agent, Gemini CLI) via
@@ -251,7 +260,9 @@ Usually launched by the client. See CLI Commands. ([Block][15])
 - On‑disk by default: configs in `~/.config/goose`; sessions/logs in
   platform paths. ([Block][7])
 - Disable keyring if needed: `GOOSE_DISABLE_KEYRING=1`. ([Block][12])
-- Persist preferences safely: use `.goosehints` (global or project). ([Block][13])
+- Persist preferences safely: use `.goosehints` (global or project). ([Block][13]) Watch
+  the [Goose Hints Walkthrough](https://www.youtube.com/watch?v=kWXJC5p0608) video to
+  see how hints shape agent behavior.
 
 ---
 
@@ -326,3 +337,4 @@ Reference: CLI Commands. ([Block][15])
 [16]: https://block.github.io/goose/docs/guides/running-tasks/ "Running Tasks"
 [18]: https://block.github.io/goose/docs/guides/managing-projects/ "Managing Projects"
 [19]: https://block.github.io/goose/docs/guides/cli-providers/ "CLI Providers"
+[20]: https://block.github.io/goose/docs/guides/subagents/ "Subagents"

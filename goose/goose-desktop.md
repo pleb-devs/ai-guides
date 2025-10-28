@@ -161,6 +161,15 @@ Extensions power file edits, shell, browsers, and more. ([Block][2])
 
   <img width="941" height="478" alt="Screenshot 2025-10-10 at 8 47 38 AM" src="https://github.com/user-attachments/assets/f277b77a-f5a3-4d21-b803-3266d2380c6d" />
 
+### Subagents
+
+Subagents are focused helpers with their own instructions, tool access,
+and memory. Launch them from Desktop’s Subagents pane or from a recipe
+to hand off research, implementation, or review tasks without breaking
+flow. See the Subagents guide for configuration patterns. ([Block][21])
+Watch the [Goose Subagents walkthrough](https://www.youtube.com/watch?v=Uk4TtJUykK4)
+video for a visual demo.
+
 ---
 
 ## Cost savings guide
@@ -178,7 +187,8 @@ Extensions power file edits, shell, browsers, and more. ([Block][2])
 
 - **Local by default:** config and logs remain on disk; Desktop and CLI share state. Secrets live in the system keychain unless you override it. ([Block][15])
 - **Keyring control:** set `GOOSE_DISABLE_KEYRING=1` if OS keychains are unavailable; Goose falls back to a local secrets file. ([Block][16])
-- **Avoid repeating sensitive context:** use **`.goosehints`** (project/global) for stable rules and combine with Memory as needed. ([Block][17])
+- **Avoid repeating sensitive context:** use **`.goosehints`** (project/global) for stable rules and combine with Memory as needed. ([Block][17]) Watch the
+  [Goose Hints Walkthrough](https://www.youtube.com/watch?v=kWXJC5p0608) video for a quick tour.
 - **Observability (opt-in):** if you enable **Langfuse**, point it to your own instance/region. ([Block][18])
 
 
@@ -257,3 +267,4 @@ GOOSE_DISABLE_KEYRING=1
 [18]: https://block.github.io/goose/docs/tutorials/langfuse/ "Observability with Langfuse"
 [19]: https://block.github.io/goose/docs/guides/managing-tools/tool-permissions/ "Managing Tool Permissions"
 [20]: https://block.github.io/goose/docs/tutorials/isolated-development-environments/ "Isolated Development Environments"
+[21]: https://block.github.io/goose/docs/guides/subagents/ "Subagents"
