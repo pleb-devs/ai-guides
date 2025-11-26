@@ -10,12 +10,14 @@
   - [Start a chat](#start-a-chat)
   - [Switch models](#switch-models)
   - [Use voice](#use-voice)
-  - [Upload a file](#upload-a-file)
+  - [Upload an image or document](#upload-an-image-or-document)
 - [Pro usage](#pro-usage)
   - [Team accounts](#team-accounts)
   - [Cross-device flow](#cross-device-flow)
   - [Model selection tips](#model-selection-tips)
   - [Live Data](#live-data)
+  - [Image workflows](#image-workflows)
+  - [Document workflows](#document-workflows)
 - [Cost savings guide](#cost-savings-guide)
 - [Privacy guide](#privacy-guide)
 - [Security guide](#security-guide)
@@ -52,9 +54,11 @@ Tap the model name in the chat header and choose a different model (e.g., GPT-OS
 ### Use voice
 Tap the microphone icon, speak, then send; Maple transcribes and replies with text and optional audio. Requires Pro, Team, or Max. Works on web, desktop, and iOS today.
 
-### Upload a file
-- Tap the paperclip/camera, choose **Image** or **Document**, and send one file (≤5MB). Supported images: JPG, PNG, WEBP. Documents: PDF, DOC/DOCX, TXT, RTF, XLS/XLSX, PPT/PPTX, MD.
-- Great for translations, summaries, code reviews, and slide notes.
+### Upload an image or document
+- Tap the paperclip/camera, choose **Image** or **Document**, and send one file (≤5MB).
+- Supported images: JPG, PNG, WEBP. Supported documents: PDF, DOC/DOCX, TXT, RTF, XLS/XLSX, PPT/PPTX, MD.
+- Add clear instructions in the same message (for example, “summarize each section in 3 bullets,” “extract all dates,” or “describe this slide in two bullet points”).
+- Great for translations, summaries, code reviews, slide notes, and quick data extraction.
 
 ## Pro usage
 
@@ -72,10 +76,22 @@ Tap the microphone icon, speak, then send; Maple transcribes and replies with te
 - Turn on Live Data in a chat when you need up-to-date answers; Maple will privately fetch results from the web and combine them with the selected model.
 - Live Data uses the same encrypted stack as normal chats, and Maple does not use your browsing queries or results to train models.
 
+### Image workflows
+- Use image uploads for things like slide summaries, UI reviews, and text-in-image extraction; keep files under 5MB and crop or resize to what you actually need.
+- Attach only one image per message and include context (for example, “translate the sign and list all numbers you see”) so the model knows what to focus on.
+- Start with a vision-capable model (such as a Gemma or Mistral vision variant) to interpret the image, then switch to a cheaper text model in follow-up turns for additional Q&A.
+
+### Document workflows
+- For long PDFs and decks, split into ≤5MB chunks and send them sequentially in the same thread; ask for sectioned summaries to keep things organized.
+- After an initial summary, refine your understanding with follow-up questions instead of re-uploading the file (for example, “compare sections 2 and 3 on risk”).
+- Start with a smaller, faster model for extraction, then switch to a stronger reasoning model (like GPT-OSS 120B or DeepSeek R1) when you need deep analysis or synthesis.
+
 ## Cost savings guide
 - Stay on Free for light use (10 chats/week); upgrade only when you need uploads or higher limits.
 - Pick smaller models (e.g., Mistral Small) for quick replies; reserve heavier models (DeepSeek R1, GPT-OSS 120B) for tough tasks.
 - Keep uploads under 5MB; trim or crop images and split long PDFs to avoid retries.
+- For uploads, compress or split large PDFs and images to reduce tokenization and avoid hitting per-message limits.
+- Pro/Team plans are required for document and image uploads; only upgrade seats that actually need uploads—others can stay on Starter.
 
 ## Privacy guide
 - Chats, uploads, and voice are encrypted on-device and processed inside secure enclaves; no clear-text logging.
@@ -93,6 +109,8 @@ Tap the microphone icon, speak, then send; Maple transcribes and replies with te
 - Upload fails: confirm size ≤5MB and one file per message; check supported extensions.
 - Model not available: feature may require Starter+ (vision) or Pro/Team (uploads); upgrade or switch plans.
 - Voice icon missing: ensure Pro/Team/Max and use web, desktop, or iOS.
+- Upload feature missing on web: uploads are rolling out on the web client; if you do not see the option, use desktop or mobile.
+- Got a partial summary from a document: split long files into smaller sections and send them in order, referring back to earlier parts as needed.
 
 ## Sources
 
