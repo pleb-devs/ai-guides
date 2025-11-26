@@ -20,3 +20,7 @@ Each guide follows the same consistent sections so you can skim or dive deep:
 - **Ollama Desktop (local model host)** → [ollama/ollama-desktop.md](./ollama/ollama-desktop.md)
 - **Ollama CLI (local model host)** → [ollama/ollama-cli.md](./ollama/ollama-cli.md)
 - **Ollama → Goose Integration** → [ollama/ollama-goose.md](./ollama/ollama-goose.md)
+- **Maple API (OpenAI-compatible proxy)** → [maple/maple-api.md](./maple/maple-api.md)
+- **Maple App Quickstart** → [maple/maple-app-quickstart.md](./maple/maple-app-quickstart.md)
+- **Maple Image Upload** → [maple/maple-image-upload.md](./maple/maple-image-upload.md)
+- **Maple Document Upload** → [maple/maple-document-upload.md](./maple/maple-document-upload.md)
