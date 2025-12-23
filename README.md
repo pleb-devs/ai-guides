@@ -1,5 +1,5 @@
 # ai-guides
-Comprehensive list of LLM's coding agents, and AI clients with instructions. 
+Comprehensive list of guides for LLM's coding agents, and AI clients with a focus on privacy, open source, and security WITHOUT sacrificing intelligence and cost effectiveness.
 
 ## Guide structure
 Each guide follows the same consistent sections so you can skim or dive deep:
