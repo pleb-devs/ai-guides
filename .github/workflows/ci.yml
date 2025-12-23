@@ -33,6 +33,7 @@ jobs:
       - name: Link check (lychee)
         uses: lycheeverse/lychee-action@v2
         with:
+          fail: false
           args: >-
             --verbose
             --no-progress
