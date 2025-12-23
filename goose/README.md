@@ -10,11 +10,14 @@ This folder indexes the Goose guides and how to use them together. Use this as a
   - Sessions and one‑off runs, recipes and scheduling, projects, CI/CD usage, environment variables, and audit/export tips.
 - [goose-ollama.md](./goose-ollama.md) — Goose + Ollama integration
   - Connect Goose (Desktop/CLI) to a local Ollama server. Includes OpenAI‑compatible base URL (`/v1`) configuration, model naming, and common errors.
+- [goose-searxng.md](./goose-searxng.md) — Goose + SearXNG private search
+  - Run SearXNG locally and add it as a custom MCP extension for private web search.
 
 ## Choose a Path
 
 - New to Goose? Start with Desktop → goose-desktop.md, then skim goose-cli.md if you need automation.
 - Already hosting local models? Jump straight to goose-ollama.md to wire Goose to your Ollama instance.
+- Want private web search? Use goose-searxng.md after a quick read of goose-desktop.md or goose-cli.md.
 
 ## Related
 
@@ -22,4 +25,3 @@ This folder indexes the Goose guides and how to use them together. Use this as a
   - [ollama-desktop.md](../ollama/ollama-desktop.md) — host and manage models on your machine
   - [ollama-cli.md](../ollama/ollama-cli.md) — API checks, lifecycle, service patterns
   - [ollama-goose.md](../ollama/ollama-goose.md) — use Ollama to power Goose
-

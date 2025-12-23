@@ -263,6 +263,8 @@ Usually launched by the client. See CLI Commands. ([Block][15])
 - Persist preferences safely: use `.goosehints` (global or project). ([Block][13]) Watch
   the [Goose Hints Walkthrough](https://www.youtube.com/watch?v=kWXJC5p0608) video to
   see how hints shape agent behavior.
+- **Hosted web search is not private**: extensions like Tavily run on third‑party APIs and require API keys, so queries leave your machine. Treat hosted search as non‑private. ([Block][21])
+- **Private search extension (SearXNG)**: run a local SearXNG instance and add it as a custom MCP extension (STDIO). See the [Goose → SearXNG guide](./goose-searxng.md) for the minimal setup. ([Block][22])
 
 ---
 
@@ -338,3 +340,5 @@ Reference: CLI Commands. ([Block][15])
 [18]: https://block.github.io/goose/docs/guides/managing-projects/ "Managing Projects"
 [19]: https://block.github.io/goose/docs/guides/cli-providers/ "CLI Providers"
 [20]: https://block.github.io/goose/docs/guides/subagents/ "Subagents"
+[21]: https://block.github.io/goose/docs/mcp/tavily-mcp/ "Tavily MCP Extension"
+[22]: https://block.github.io/goose/docs/tutorials/custom-extensions/ "Custom Extensions"

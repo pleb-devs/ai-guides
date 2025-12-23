@@ -190,6 +190,8 @@ video for a visual demo.
 - **Avoid repeating sensitive context:** use **`.goosehints`** (project/global) for stable rules and combine with Memory as needed. ([Block][17]) Watch the
   [Goose Hints Walkthrough](https://www.youtube.com/watch?v=kWXJC5p0608) video for a quick tour.
 - **Observability (opt-in):** if you enable **Langfuse**, point it to your own instance/region. ([Block][18])
+- **Hosted web search is not private:** extensions like Tavily run on third‑party APIs and require API keys, so queries leave your machine. Treat hosted search as non‑private. ([Block][22])
+- **Private search extension (SearXNG):** add a local SearXNG MCP extension via the Custom Extensions flow. See the [Goose → SearXNG guide](./goose-searxng.md) for the minimal setup. ([Block][23])
 
 
 
@@ -268,3 +270,5 @@ GOOSE_DISABLE_KEYRING=1
 [19]: https://block.github.io/goose/docs/guides/managing-tools/tool-permissions/ "Managing Tool Permissions"
 [20]: https://block.github.io/goose/docs/tutorials/isolated-development-environments/ "Isolated Development Environments"
 [21]: https://block.github.io/goose/docs/guides/subagents/ "Subagents"
+[22]: https://block.github.io/goose/docs/mcp/tavily-mcp/ "Tavily MCP Extension"
+[23]: https://block.github.io/goose/docs/tutorials/custom-extensions/ "Custom Extensions"

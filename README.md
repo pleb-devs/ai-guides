@@ -13,12 +13,15 @@ Each guide follows the same consistent sections so you can skim or dive deep:
 7. **Security guide** — Safe operation, secret handling, and permissions hardening
 
 ## Guides
-- **OpenCode (CLI coding agent)** → [opencode.md](./opencode.md)
+- **OpenCode (CLI coding agent)** → [opencode/opencode.md](./opencode/opencode.md)
+- **OpenCode → SearXNG (private search)** → [opencode/opencode-searxng.md](./opencode/opencode-searxng.md)
 - **Goose Desktop** → [goose/goose-desktop.md](./goose/goose-desktop.md)
 - **Goose CLI** → [goose/goose-cli.md](./goose/goose-cli.md)
 - **Goose + Ollama Integration** → [goose/goose-ollama.md](./goose/goose-ollama.md)
+- **Goose → SearXNG (private search)** → [goose/goose-searxng.md](./goose/goose-searxng.md)
 - **Ollama Desktop (local model host)** → [ollama/ollama-desktop.md](./ollama/ollama-desktop.md)
 - **Ollama CLI (local model host)** → [ollama/ollama-cli.md](./ollama/ollama-cli.md)
 - **Ollama → Goose Integration** → [ollama/ollama-goose.md](./ollama/ollama-goose.md)
 - **Maple API (OpenAI-compatible proxy)** → [maple/maple-api.md](./maple/maple-api.md)
 - **Maple App (chat + uploads)** → [maple/maple-app-quickstart.md](./maple/maple-app-quickstart.md)
+- **SearXNG (local private search)** → [searxng/searxng-local.md](./searxng/searxng-local.md)

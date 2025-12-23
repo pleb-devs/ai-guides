@@ -283,6 +283,8 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 * Route APIs through a **custom `baseURL`** (egress proxy / self-hosted gateway) in the provider config. ([Opencode][3])
 * Keep credentials out of history: store keys via `opencode auth login` (saved at `~/.local/share/opencode/auth.json`) or use **config variable substitution** to pull from environment/files. ([Opencode][3])
 * Consider disabling **automatic LSP downloads** in restricted environments: `OPENCODE_DISABLE_LSP_DOWNLOAD=true`. ([Opencode][9])
+* **Hosted web search is not private**: if you enable a hosted MCP search provider (for example Exa’s remote MCP at `https://mcp.exa.ai/mcp`), your queries are sent to that third party. Treat it as non‑private and disable it when privacy matters. ([Exa][16])
+* **Private web search (SearXNG)**: run SearXNG locally and connect it via MCP. See the [OpenCode → SearXNG guide](./opencode-searxng.md) for the minimal setup.
 
 **Team/enterprise**
 
@@ -342,3 +344,5 @@ If you want, I can generate a **starter `opencode.json`** tuned for your stacks 
 [12]: https://opencode.ai/docs/github/ "GitHub | opencode"
 [13]: https://opencode.ai/docs/share/ "Share | opencode"
 [14]: https://github.com/sst/opencode "GitHub - sst/opencode: AI coding agent, built for the terminal."
+[15]: https://opencode.ai/docs/tools/ "Tools | opencode"
+[16]: https://docs.exa.ai/reference/exa-mcp "Exa MCP"

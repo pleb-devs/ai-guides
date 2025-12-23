@@ -3,7 +3,7 @@
 This repository hosts practical guides for coding agents and AI clients. Follow these rules to keep contributions clear, consistent, and easy to review.
 
 ## Project Structure & Module Organization
-- Guides live at the repo root and in topic folders (e.g., `goose/`). Examples: `opencode.md`, `goose/goose-cli.md`, `goose/goose-desktop.md`.
+- Guides live at the repo root and in topic folders (e.g., `goose/`, `opencode/`). Examples: `opencode/opencode.md`, `goose/goose-cli.md`, `goose/goose-desktop.md`.
 - Use kebab-case filenames and nest by vendor/tool. Update `README.md` to index new guides.
 
 ## Build, Test, and Development Commands
@@ -34,5 +34,4 @@ This repository hosts practical guides for coding agents and AI clients. Follow 
 - Never commit secrets, tokens, or private URLs. Use placeholders like `YOUR_API_KEY` and sample `.env` patterns. Redact IDs in screenshots.
 
 ## Agent‑Specific Instructions
-- When adding a new tool guide, mirror existing examples (`goose/*`, `opencode.md`) and add it to the “Guides” list in `README.md`.
-
+- When adding a new tool guide, mirror existing examples (`goose/*`, `opencode/*`) and add it to the “Guides” list in `README.md`.
