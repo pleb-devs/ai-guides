@@ -34,7 +34,7 @@ ollama serve
 ollama run llama3   # downloads on first use
 ```
 
-2) Configure Goose
+1) Configure Goose
 
 - Base URL: `http://localhost:11434/v1`
 - API key: any non‑empty string (unused by Ollama)

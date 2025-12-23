@@ -16,7 +16,7 @@
   - [API checks (curl)](#api-checks-curl)
   - [Model lifecycle](#model-lifecycle)
   - [Custom models with Modelfile](#custom-models-with-modelfile)
-  - [OpenAI‑compatible clients](#openai-compatible-clients)
+  - [OpenAI-compatible clients](#openai-compatible-clients)
   - [Headless service patterns](#headless-service-patterns)
 - [Cost savings guide](#cost-savings-guide)
 - [Privacy guide](#privacy-guide)
@@ -101,7 +101,7 @@ ollama create -f Modelfile my-code-fixer
 ollama run my-code-fixer
 ```
 
-### OpenAI‑compatible clients
+### OpenAI-compatible clients
 
 Many tools can talk to Ollama via OpenAI‑style endpoints. Point them at `http://localhost:11434/v1` and select your local model name.
 
@@ -188,4 +188,3 @@ OLLAMA_HOST=127.0.0.1:11434   # bind/port
 - Model won’t load → not enough RAM/VRAM; choose a smaller variant.
 - High latency → first run compiles/warms; subsequent calls improve.
 - Client schema mismatch → try the OpenAI‑compatible base URL at `/v1`.
-

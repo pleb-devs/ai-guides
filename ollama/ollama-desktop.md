@@ -189,5 +189,4 @@ ollama create -f Modelfile <name>
 - Port 11434 in use → stop other services or change `OLLAMA_HOST`.
 - Slow first token → first request warms the model; subsequent calls speed up.
 - Out of memory → choose a smaller/quantized model or close other GPU tasks.
-- Client can’t connect → confirm server is running and the base URL (native vs `/v1`).
-
+- Client can't connect → confirm server is running and the base URL (native vs `/v1`).

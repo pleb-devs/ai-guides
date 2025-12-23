@@ -1,7 +1,9 @@
 # ai-guides
+
 Comprehensive list of guides for LLM's coding agents, and AI clients with a focus on privacy, open source, and security WITHOUT sacrificing intelligence and cost effectiveness.
 
 ## Guide structure
+
 Each guide follows the same consistent sections so you can skim or dive deep:
 
 1. **Overview** — What the tool is and when to use it
@@ -13,6 +15,7 @@ Each guide follows the same consistent sections so you can skim or dive deep:
 7. **Security guide** — Safe operation, secret handling, and permissions hardening
 
 ## Guides
+
 - **OpenCode (CLI coding agent)** → [opencode/opencode.md](./opencode/opencode.md)
 - **OpenCode → SearXNG (private search)** → [opencode/opencode-searxng.md](./opencode/opencode-searxng.md)
 - **Goose Desktop** → [goose/goose-desktop.md](./goose/goose-desktop.md)

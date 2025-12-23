@@ -42,7 +42,6 @@ For helpful tutorials, check out the [Goose YouTube channel](https://www.youtube
 
 <img width="1766" height="809" alt="image" src="https://github.com/user-attachments/assets/4a3bfe83-05d8-4cde-8834-d0d5d4906aed" />
 
-
 ---
 
 ## Setup
@@ -72,7 +71,6 @@ On first launch, Goose prompts you to pick an **LLM provider** (OpenAI, Anthropi
 - **Know where config lives:** `~/.config/goose/config.yaml` (or find in ui from below img). Both Desktop and CLI share this file. ([Block][9])
   <img width="703" height="382" alt="image" src="https://github.com/user-attachments/assets/ff7377bd-1648-4e53-935e-8757957c8e71" />
 
-
 ---
 
 ## Beginner usage
@@ -89,9 +87,11 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
   <img width="1568" height="672" alt="image" src="https://github.com/user-attachments/assets/31e068b5-0e32-401b-a07e-b3113da5685f" />
 - **Smart context:** Goose auto-compacts older turns once usage hits ~80% of the model window; tune with `GOOSE_AUTO_COMPACT_THRESHOLD`. ([Block][12])
 - **Export sessions** (Desktop export not available; use CLI). See Exporting Sessions. ([Block][10])
+
   ```bash
   goose session export   # interactive picker
   ```
+
   <img width="1466" height="891" alt="image" src="https://github.com/user-attachments/assets/5aac07bd-e9ec-4349-87ba-581635aa3d75" />
 
 ### A simple first flow
@@ -106,9 +106,8 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
   
   <img width="380" height="225" alt="image" src="https://github.com/user-attachments/assets/cd4b3e78-0017-4f39-96af-8039ef57752c" />
 - Add a minimal `.gooseignore` to fence secrets (for example: `**/.env*`, `**/secrets/**`)
- 
-  <img width="607" height="511" alt="image" src="https://github.com/user-attachments/assets/ee30bc9a-de32-456b-863d-2585664c73ae" />
 
+  <img width="607" height="511" alt="image" src="https://github.com/user-attachments/assets/ee30bc9a-de32-456b-863d-2585664c73ae" />
 
 **Phase 1 — Survey & plan**
 
@@ -117,15 +116,15 @@ Open a new session, describe the task, **review the plan**, then approve tool ru
 
   <img width="1607" height="1091" alt="image" src="https://github.com/user-attachments/assets/b9980b11-b416-40fc-8e05-aeb1413fd8f6" />
 
-
 **Phase 2 — Make one change**
 
 - Approve (or reject and iterate on) Goose's suggested edit's
 - Review the diff; ask for any needed changes.
 
-https://github.com/user-attachments/assets/54604dff-6c99-4369-bb93-3ab76c3d2b0e
+<https://github.com/user-attachments/assets/54604dff-6c99-4369-bb93-3ab76c3d2b0e>
 
 **Phase 4 — Verify & Summarize**
+
 - Review the changes manually and run tests if you have them
 - Ask Goose to draft a short change summary and rationale; paste into your commit message.
 - Exporting the session is optional; use it later when you want an audit trail or to help write a PR. ([Block][6])
@@ -193,8 +192,6 @@ video for a visual demo.
 - **Hosted web search is not private:** extensions like Tavily run on third‑party APIs and require API keys, so queries leave your machine. Treat hosted search as non‑private. ([Block][22])
 - **Private search extension (SearXNG):** add a local SearXNG MCP extension via the Custom Extensions flow. See the [Goose → SearXNG guide](./goose-searxng.md) for the minimal setup. ([Block][23])
 
-
-
 ---
 
 ## Security guide
@@ -241,11 +238,7 @@ GOOSE_DISABLE_KEYRING=1
 - **Ollama local models:** pull and run a model before using it; otherwise the provider fails. ([Block][15])
 - **Context limits:** auto-compaction triggers around 80% of the context window; tune or disable via env. ([Block][12])
 
-[SCREENSHOT OF “ABOUT/HELP → VERSION INFO”]
-
----
-
-
+[SCREENSHOT OF "ABOUT/HELP → VERSION INFO"]
 
 ---
 

@@ -23,4 +23,3 @@ This folder contains practical docs for hosting local models with **Ollama** and
   - [goose-desktop.md](../goose/goose-desktop.md)
   - [goose-cli.md](../goose/goose-cli.md)
   - [goose-ollama.md](../goose/goose-ollama.md)
-

@@ -1,6 +1,7 @@
 # Maple API (Maple Proxy) — OpenAI-Compatible Encrypted LLMs
 
 ## Index
+
 - [Overview](#overview)
 - [Setup](#setup)
   - [Desktop app (fast local dev)](#desktop-app-fast-local-dev)
