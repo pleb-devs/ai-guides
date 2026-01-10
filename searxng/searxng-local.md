@@ -44,7 +44,7 @@ search:
 
 server:
   # Bind to all interfaces so Docker port-forwarding works
-  # (host-side restriction is handled by -p 127.0.0.1:8888:8080)
+  # (host-side restriction is handled by -p 127.0.0.1:8080:8080)
   bind_address: "0.0.0.0"
   # Change this before exposing beyond localhost
   secret_key: "change-me-please"
@@ -53,13 +53,13 @@ EOF
 
 ### 2) Run a local container
 
-The official container guide documents Docker-based setup; here's a minimal local example that maps `8888 -> 8080` and persists config/cache to local volumes. ([SearXNG][4])
+The official container guide documents Docker-based setup; here's a minimal local example that binds to `localhost:8080` and persists config/cache to local volumes. ([SearXNG][4])
 
 ```bash
 cd ./searxng/
 
 docker run --name searxng -d \
-  -p 127.0.0.1:8888:8080 \
+  -p 127.0.0.1:8080:8080 \
   -v "./config/:/etc/searxng/" \
   -v "./data/:/var/cache/searxng/" \
   docker.io/searxng/searxng:latest
@@ -70,14 +70,14 @@ docker run --name searxng -d \
 The Search API supports `format=json` (when enabled in `search.formats`). ([SearXNG][3], [SearXNG][6])
 
 ```bash
-curl "http://localhost:8888/search?q=searxng&format=json"
+curl "http://localhost:8080/search?q=searxng&format=json"
 ```
 
 ---
 
 ## Beginner usage
 
-- **Use the web UI**: open `http://localhost:8888` and search normally.
+- **Use the web UI**: open `http://localhost:8080` and search normally.
 - **Use JSON for tooling**: when wiring a local agent tool, call `/search?format=json` and pass query params like `q`, `categories`, or `engines`. ([SearXNG][3])
 
 ---
@@ -85,7 +85,7 @@ curl "http://localhost:8888/search?q=searxng&format=json"
 ## Pro usage
 
 - **Trim engines** to reduce noise and outbound requests using `engines.remove` or `engines.keep_only`. The settings docs show how to override and filter engines with `use_default_settings`. ([SearXNG][5])
-- **Keep the instance local** for private use by binding the Docker port to `127.0.0.1` (e.g., `-p 127.0.0.1:8888:8080`), or front it with a VPN/reverse proxy only if you need remote access. Private instances can be single-user and run locally. ([SearXNG][2])
+- **Keep the instance local** for private use by binding the Docker port to `127.0.0.1` (e.g., `-p 127.0.0.1:8080:8080`), or front it with a VPN/reverse proxy only if you need remote access. Private instances can be single-user and run locally. ([SearXNG][2])
 - **Use proxies or Tor** if you want extra anonymity when SearXNG queries upstream search engines. ([SearXNG][2])
 
 ---
@@ -107,7 +107,7 @@ curl "http://localhost:8888/search?q=searxng&format=json"
 
 ## Security guide
 
-- **Bind to localhost** for single-user setups using Docker's host-side restriction (`-p 127.0.0.1:8888:8080`). ([SearXNG][7])
+- **Bind to localhost** for single-user setups using Docker's host-side restriction (`-p 127.0.0.1:8080:8080`). ([SearXNG][7])
 - **Set a strong secret key** before exposing the instance. The settings docs call out `secret_key` as a required override. ([SearXNG][5], [SearXNG][7])
 - **Use `use_default_settings: true`** and override only what you need to reduce misconfiguration risk. ([SearXNG][5])
 

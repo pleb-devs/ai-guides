@@ -29,14 +29,25 @@
 
 ### 1) Run SearXNG locally
 
-Use the local SearXNG guide for a minimal Docker setup (binds to `localhost:8888` and enables JSON search output). ([SearXNG Guide][3])
+Use the local SearXNG guide for a minimal Docker setup. ([SearXNG Guide][3])
+
+**Critical config:** SearXNG blocks JSON API access by default. Edit your `settings.yml` and add `json` to the formats list:
+
+```yaml
+search:
+  formats:
+    - html
+    - json  # Required for MCP extension
+```
+
+Restart the container after editing.
 
 ### 2) Start the MCP server
 
-Use the lightweight SearXNG MCP server (Python) to expose a tool Goose can call. ([SearXNG MCP][4])
+Use the lightweight SearXNG MCP server to expose a tool Goose can call. ([SearXNG MCP][4])
 
 ```bash
-uvx mcp-searxng
+npx mcp-searxng
 ```
 
 ### 3) Add the extension in Goose
@@ -45,10 +56,10 @@ Add a **Custom Extension** with the command and environment below, then save it.
 
 ```bash
 # Extension command
-uvx mcp-searxng
+npx mcp-searxng
 
 # Extension env
-SEARXNG_URL=http://localhost:8888
+SEARXNG_URL=http://localhost:8080
 ```
 
 ---
@@ -92,8 +103,9 @@ SEARXNG_URL=http://localhost:8888
 
 **Quick checklist**
 
-- SearXNG running locally (`http://localhost:8888`).
-- MCP server running (`uvx mcp-searxng`).
+- SearXNG running locally (`http://localhost:8080`).
+- SearXNG `settings.yml` has `json` in the `formats` list.
+- MCP server running (`npx mcp-searxng`).
 - Goose extension added with `SEARXNG_URL` set.
 
 ---
