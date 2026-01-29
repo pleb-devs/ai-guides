@@ -189,7 +189,7 @@ Switch based on task:
 **Cost comparison (rough monthly estimates):**
 
 | Provider | Light Use | Heavy Use |
-|----------|-----------|-----------|
+| -------- | --------- | --------- |
 | Claude API | $20-50 | $200+ |
 | OpenAI API | $20-50 | $200+ |
 | llama.cpp | $0 (electricity) | $0 (electricity) |
@@ -249,7 +249,7 @@ export GOOSE_MODEL=local-model
 **Troubleshooting**
 
 | Issue | Solution |
-|-------|----------|
+| ----- | -------- |
 | Connection refused | Start llama-server first |
 | Slow responses | Add `-ngl 99` for GPU offload |
 | Out of memory | Reduce context (`-c 2048`) or use smaller quant |

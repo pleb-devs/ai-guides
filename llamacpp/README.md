@@ -26,7 +26,7 @@ This folder contains practical docs for running local LLM inference with **llama
 ## llama.cpp vs Ollama — When to Use Each
 
 | Factor | llama.cpp | Ollama |
-|--------|-----------|--------|
+| ------ | --------- | ------ |
 | **Ease of use** | More manual setup | One-command install and run |
 | **Control** | Full control over inference params, quantization, GPU layers | Abstracted; fewer knobs |
 | **Memory efficiency** | Fine-tune context, batch, GPU offload | Automatic but less tunable |

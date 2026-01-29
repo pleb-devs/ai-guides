@@ -116,7 +116,7 @@ Popular model sources:
 llama-cli -m model.gguf -p "Explain Bitcoin in one sentence"
 ```
 
-3. For chat, use interactive mode:
+1. For chat, use interactive mode:
 
 ```bash
 llama-cli -m model.gguf -cnv

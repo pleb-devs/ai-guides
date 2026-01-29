@@ -125,7 +125,7 @@ opencode
 **Recommended models (2025):**
 
 | Model | Size | Best For |
-|-------|------|----------|
+| ----- | ---- | -------- |
 | Qwen2.5-Coder-32B | 32B | Complex refactoring, architecture |
 | Qwen2.5-Coder-14B | 14B | General coding, good balance |
 | Qwen2.5-Coder-7B | 7B | Quick tasks, limited VRAM |
@@ -232,7 +232,7 @@ Use `/models` in TUI to switch between providers during a session.
 **Token cost comparison:**
 
 | Provider | Input/1M | Output/1M |
-|----------|----------|-----------|
+| -------- | -------- | --------- |
 | Claude Sonnet | $3 | $15 |
 | GPT-4 | $10 | $30 |
 | llama.cpp | $0 | $0 |
@@ -330,7 +330,7 @@ llama-server -m model.gguf --host 0.0.0.0 --api-key "team-secret"
 **Troubleshooting**
 
 | Issue | Solution |
-|-------|----------|
+| ----- | -------- |
 | "Provider not found" | Check `npm` field matches `@ai-sdk/openai-compatible` |
 | Connection refused | Ensure llama-server is running on correct port |
 | Slow generation | Add `-ngl 99` for GPU, increase threads |

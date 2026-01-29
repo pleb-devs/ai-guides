@@ -8,8 +8,8 @@
 
 - [Overview](#overview)
 - [Setup](#setup)
-  - [Get the tools](#1-get-the-tools)
-  - [Prepare a model](#2-prepare-a-model)
+  - [Get the tools](#get-the-tools)
+  - [Prepare a model](#prepare-a-model)
 - [Beginner usage](#beginner-usage)
 - [Pro usage](#pro-usage)
   - [Quantization types explained](#quantization-types-explained)
@@ -38,7 +38,7 @@ llama.cpp uses the **GGUF format**—a single-file format containing model weigh
 
 ## Setup
 
-### 1) Get the tools
+### Get the tools
 
 Build llama.cpp from source to get quantization tools:
 
@@ -54,7 +54,7 @@ cmake --build build --config Release -j
 pip install -r requirements.txt
 ```
 
-### 2) Prepare a model
+### Prepare a model
 
 You need either:
 
@@ -86,7 +86,7 @@ You need either:
 ### Quantization types explained
 
 | Type | Bits | Size (7B) | Quality | Speed | Use Case |
-|------|------|-----------|---------|-------|----------|
+| ---- | ---- | --------- | ------- | ----- | -------- |
 | F32 | 32 | ~28GB | Best | Slow | Reference only |
 | F16 | 16 | ~14GB | Excellent | Slow | High-end GPUs |
 | Q8_0 | 8 | ~7GB | Very good | Fast | When you have RAM |
@@ -220,7 +220,7 @@ for key in reader.fields:
 
 **Quantization decision tree:**
 
-```
+```text
 Have 24GB+ VRAM? → Q6_K or Q8_0
 Have 8-16GB VRAM? → Q4_K_M or Q5_K_M
 Have 4-8GB VRAM? → Q4_K_S or Q3_K_M
@@ -243,7 +243,7 @@ python convert_hf_to_gguf.py ./hf-model --outfile model.gguf
 **File size reference (7B model)**
 
 | Quantization | Approximate Size |
-|--------------|------------------|
+| ------------ | ---------------- |
 | F16 | 14 GB |
 | Q8_0 | 7 GB |
 | Q6_K | 5.5 GB |

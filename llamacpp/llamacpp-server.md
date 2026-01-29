@@ -139,7 +139,7 @@ llama-server -m <model.gguf>   # Model file (required)
 ### API endpoints
 
 | Endpoint | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `GET /health` | Server health check |
 | `GET /v1/models` | List loaded models |
 | `POST /v1/chat/completions` | Chat completion (OpenAI format) |
@@ -313,7 +313,7 @@ curl http://localhost:8080/v1/chat/completions \
 **Client configuration**
 
 | Tool | Base URL | API Key |
-|------|----------|---------|
+| ---- | -------- | ------- |
 | OpenAI Python | `http://localhost:8080/v1` | `"not-needed"` |
 | Goose | `http://localhost:8080/v1` | Any string |
 | OpenCode | `http://localhost:8080/v1` | Any string |
