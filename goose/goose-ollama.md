@@ -34,7 +34,7 @@ ollama serve
 ollama pull qwen3.5:3b
 ```
 
-2) Configure Goose
+1) Configure Goose
 
 Desktop
 
