@@ -49,35 +49,39 @@
 
 ### 2) Start the local server
 
+If you installed the Ollama desktop app, it runs the local server while the app is open. Use `ollama serve` mainly for headless/CLI setups.
+
 ```bash
-ollama serve   # starts the API at http://localhost:11434
+ollama serve   # starts the API at http://localhost:11434 (native API base: /api)
 ```
 
 ### 3) Pull a starter model
 
 ```bash
-ollama run llama3   # downloads (first run) and starts serving the model
+ollama pull qwen3.5:3b  # download only
+ollama run qwen3.5:3b   # downloads (first run) and opens an interactive chat
 ```
 
 Confirm the API is live:
 
 ```bash
 curl http://localhost:11434/api/generate \
-  -d '{"model":"llama3","prompt":"Say hello"}'
+  -H 'Content-Type: application/json' \
+  -d '{"model":"qwen3.5:3b","prompt":"Say hello","stream":false}'
 ```
 
 <img width="962" height="710" alt="image" src="https://github.com/user-attachments/assets/67127c7e-e82c-4934-bf65-b4887ca9167a" />
 
-To point an agent (e.g., Goose) at Ollama, use `http://localhost:11434` and the exact model name (e.g., `llama3`). Many tools also support an OpenAI‑compatible base URL at `http://localhost:11434/v1`.
+To point an agent (e.g., Goose) at Ollama, use `http://localhost:11434` and the exact model name (e.g., `qwen3.5:3b`). Many tools also support OpenAI‑compatible endpoints at `http://localhost:11434/v1/` (API key required by most clients, but ignored by Ollama).
 
 ---
 
 ## Beginner usage
 
-1) Start the server: `ollama serve`
-2) Pull & run: `ollama run llama3`
+1) Ensure the server is running (Ollama app open, or `ollama serve`)
+2) Pull a model: `ollama pull qwen3.5:3b` (or `ollama run qwen3.5:3b` to chat)
 3) Sanity check with curl (see above)
-4) In your agent, select the local provider and set model=`llama3` (or use OpenAI‑compatible mode with base URL `http://localhost:11434/v1`).
+4) In your agent, select the local provider and set model=`qwen3.5:3b` (or use OpenAI‑compatible mode with base URL `http://localhost:11434/v1/`).
 
 ---
 
@@ -86,10 +90,12 @@ To point an agent (e.g., Goose) at Ollama, use `http://localhost:11434` and the 
 ### Manage models
 
 ```bash
-ollama list                 # installed models
-ollama pull mistral         # download but don’t run
-ollama show llama3          # details (size, families)
-ollama rm llama3:latest     # remove when space is tight
+ollama ls                   # installed models
+ollama ps                   # running models
+ollama pull qwen3.5:1.7b   # download another small variant
+ollama show qwen3.5:3b     # details (size, families)
+ollama stop qwen3.5:3b     # unload from memory
+ollama rm qwen3.5:3b       # remove when space is tight
 ```
 
 ### Custom models (Modelfile)
@@ -97,7 +103,7 @@ ollama rm llama3:latest     # remove when space is tight
 Create a `Modelfile` to pin a base model and parameters:
 
 ```text
-FROM llama3
+FROM qwen3.5:3b
 PARAMETER temperature 0.2
 SYSTEM You are a concise assistant for code reviews.
 ```
@@ -105,13 +111,13 @@ SYSTEM You are a concise assistant for code reviews.
 Build and run:
 
 ```bash
-ollama create -f Modelfile my-local-code
+ollama create my-local-code -f Modelfile
 ollama run my-local-code
 ```
 
 ### Run as a background service
 
-- macOS/Windows: use the standard OS facilities to start `ollama serve` at login.
+- macOS/Windows: the Ollama desktop app runs the background server; enable “start at login” if you want it always on.
 - Linux (systemd):
 
 ```bash
@@ -122,20 +128,20 @@ journalctl -u ollama -f
 
 ### LAN access (use sparingly)
 
-Bind beyond localhost only on trusted networks:
+By default Ollama binds to `127.0.0.1:11434`. Only listen on LAN on trusted networks.
 
 ```bash
-export OLLAMA_HOST=0.0.0.0:11434
-ollama serve
+# If you're running `ollama serve` directly:
+OLLAMA_HOST=0.0.0.0:11434 ollama serve
 ```
 
-Prefer localhost for security; if exposing, place behind a reverse proxy + auth and restrict by firewall.
+If you're running Ollama as an app/service (common), set `OLLAMA_HOST` for that service (macOS `launchctl setenv ...`, Linux `systemctl edit ollama.service`, Windows system env) and restart Ollama.
 
 ### Docker hosting
 
 ```bash
-docker run -d --name ollama -p 11434:11434 ollama/ollama
-docker exec -it ollama ollama run llama3
+docker run -d --name ollama -p 11434:11434 -v ollama:/root/.ollama ollama/ollama
+docker exec -it ollama ollama run qwen3.5:3b
 ```
 
 ---
@@ -150,8 +156,10 @@ docker exec -it ollama ollama run llama3
 
 ## Privacy guide
 
-- After download, inference stays local; no prompts leave your device.
-- Keep transcripts in your agent; Ollama does not store chat history.
+- For **local** models (`http://localhost:11434`), prompts stay on-device.
+- If you use **Ollama cloud models** or **web search**, prompts are sent to `ollama.com` (content is processed but not stored per Ollama).
+- For strict local-only, disable Ollama cloud features (`OLLAMA_NO_CLOUD=1` or `~/.ollama/server.json` with `"disable_ollama_cloud": true`) and restart Ollama.
+- Ollama’s API is stateless; your client (Goose, editor, etc.) may store transcripts on disk.
 - Avoid third‑party proxies unless you control them.
 
 ---
@@ -171,16 +179,21 @@ docker exec -it ollama ollama run llama3
 ```bash
 ollama serve
 ollama run <model>
-ollama list
+ollama ls
+ollama ps
 ollama pull <model>
 ollama show <model>
+ollama stop <model>
 ollama rm <model>
-ollama create -f Modelfile <name>
+ollama create <name> -f Modelfile
 ```
 
 **Key paths**
 
-- Models/cache live under your user data directory (commonly `~/.ollama/`).
+- macOS: `~/.ollama/models/` (logs: `~/.ollama/logs/server.log`)
+- Linux (systemd installer): `/usr/share/ollama/.ollama/models/` (logs: `journalctl -u ollama`)
+- Windows: `C:\Users\%USERNAME%\.ollama\models` (logs: `%LOCALAPPDATA%\Ollama\server.log`)
+- Docker: `/root/.ollama/` inside the container (mount a volume to persist)
 
 ---
 

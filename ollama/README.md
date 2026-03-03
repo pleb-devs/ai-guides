@@ -9,7 +9,7 @@ This folder contains practical docs for hosting local models with **Ollama** and
 - [ollama-cli.md](./ollama-cli.md) — Terminal + API operations
   - Curl checks for `/api/generate` and `/api/chat`, model lifecycle commands, OpenAI‑compatible `/v1` usage, systemd/Docker patterns.
 - [ollama-goose.md](./ollama-goose.md) — Integration with Goose
-  - Point Goose (Desktop/CLI) at `http://localhost:11434` or `/v1`; model naming, security notes, and common errors.
+  - Point Goose (Desktop/CLI) at `http://localhost:11434` via Goose’s Ollama provider; model naming, security notes, and common errors.
 
 ## Choose a Path
 

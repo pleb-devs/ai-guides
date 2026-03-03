@@ -19,7 +19,7 @@
 
 ## Overview
 
-Point Goose to Ollama via the OpenAI‑compatible interface at `/v1` (works broadly) or a native Ollama provider if available in your build.
+Goose supports an **Ollama** provider that connects to your local Ollama server at `http://localhost:11434`. (Ollama also exposes OpenAI‑compatible endpoints under `/v1/` for tools that need it.)
 
 <img width="1144" height="709" alt="image" src="https://github.com/user-attachments/assets/ddf3a50c-d530-489e-a36c-bb90bb0399e5" />
 
@@ -31,25 +31,21 @@ Point Goose to Ollama via the OpenAI‑compatible interface at `/v1` (works broa
 
 ```bash
 ollama serve
-ollama run llama3   # downloads on first use
+ollama pull qwen3.5:3b
 ```
 
-1) Configure Goose
-
-- Base URL: `http://localhost:11434/v1`
-- API key: any non‑empty string (unused by Ollama)
-- Model: exact Ollama model name (e.g., `llama3`)
+2) Configure Goose
 
 Desktop
 
-- Settings → Providers → Add OpenAI‑compatible provider → set Base URL and Model → create a session using that provider.
+- Configure the **Ollama** provider and set API Host to `http://localhost:11434`, then select a tool-calling-capable model (e.g., `qwen3.5:3b`).
 
 CLI
 
 ```bash
-export OPENAI_BASE_URL=http://localhost:11434/v1
-export OPENAI_API_KEY=not-needed
-export GOOSE_MODEL=llama3
+export GOOSE_PROVIDER=ollama
+export OLLAMA_HOST=http://localhost:11434
+export GOOSE_MODEL=qwen3.5:3b
 goose session --name local-model
 ```
 
@@ -57,7 +53,7 @@ goose session --name local-model
 
 ## Beginner usage
 
-1) Verify Ollama is serving: `curl http://localhost:11434/api/generate -d '{"model":"llama3","prompt":"hi"}'`
+1) Verify Ollama is serving: `curl http://localhost:11434/api/version`
 2) Create a new Goose session selecting your Ollama-backed provider.
 3) Send a short prompt; confirm responses are fast and consistent.
 
@@ -101,8 +97,8 @@ goose session --name local-model
 **Handy commands**
 
 ```bash
-ollama list
-ollama show llama3
+ollama ls
+ollama show qwen3.5:3b
 goose session --name local-model
 ```
 

@@ -19,7 +19,7 @@
 
 ## Overview
 
-Ollama serves models on `http://localhost:11434`. Goose can connect via Ollama’s OpenAI‑compatible interface at `/v1` using your local model name.
+Ollama serves models on `http://localhost:11434` (native API under `/api`, OpenAI‑compatible endpoints under `/v1/`). Goose can connect via Goose’s **Ollama** provider (recommended) using your local model name.
 
 <img width="1524" height="1086" alt="image" src="https://github.com/user-attachments/assets/a4eb4c23-409e-47c5-aa46-0eb8bb7fc0fe" />
 
@@ -32,7 +32,7 @@ Ollama side
 ```bash
 ollama --version
 ollama serve
-ollama run llama3
+ollama pull qwen3.5:3b
 ```
 
 Quick API check
@@ -40,18 +40,18 @@ Quick API check
 ```bash
 curl http://localhost:11434/api/generate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"llama3","prompt":"hello"}'
+  -d '{"model":"qwen3.5:3b","prompt":"hello","stream":false}'
 ```
 
 Goose side
 
-- Desktop: Settings → Providers → Add OpenAI‑compatible provider → Base URL `http://localhost:11434/v1` → API key any string → Model `llama3`.
-- CLI:
+- Desktop: configure the **Ollama** provider and set API Host to `http://localhost:11434`, then select a tool-calling-capable model (e.g., `qwen3.5:3b`).
+- CLI (one-off via env vars):
 
 ```bash
-export OPENAI_BASE_URL=http://localhost:11434/v1
-export OPENAI_API_KEY=not-needed
-export GOOSE_MODEL=llama3
+export GOOSE_PROVIDER=ollama
+export OLLAMA_HOST=http://localhost:11434
+export GOOSE_MODEL=qwen3.5:3b
 goose session --name local-ollama
 ```
 
@@ -59,9 +59,10 @@ goose session --name local-ollama
 
 ## Beginner usage
 
-1) Confirm `ollama run llama3` is active.
-2) Create a new Goose session using the OpenAI‑compatible provider.
-3) Prompt once; verify latency and correctness.
+1) Confirm Ollama is serving: `curl http://localhost:11434/api/version`
+2) Ensure your model is pulled: `ollama pull qwen3.5:3b`
+3) Create a new Goose session using the **Ollama** provider.
+4) Prompt once; verify latency and correctness.
 
 <img width="1400" height="972" alt="image" src="https://github.com/user-attachments/assets/58be1972-44cf-4c7b-b3a1-cfab2d8c8ea6" />
 
@@ -101,8 +102,8 @@ goose session --name local-ollama
 **Quick refs**
 
 ```bash
-ollama list
-ollama show llama3
+ollama ls
+ollama show qwen3.5:3b
 goose session --name local-ollama
 ```
 

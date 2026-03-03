@@ -49,7 +49,8 @@ ollama serve   # runs the HTTP API
 ### 3) Pull and run a model
 
 ```bash
-ollama run llama3   # downloads (if needed) and serves the model
+ollama pull qwen3.5:3b  # download only
+ollama run qwen3.5:3b   # downloads (if needed) and opens an interactive chat
 ```
 
 ---
@@ -57,8 +58,8 @@ ollama run llama3   # downloads (if needed) and serves the model
 ## Beginner usage
 
 1) `ollama serve`
-2) `ollama run llama3`
-3) Point your agent to `http://localhost:11434` and set model=`llama3`.
+2) `ollama run qwen3.5:3b`
+3) Point your agent to `http://localhost:11434` and set model=`qwen3.5:3b`.
 
 ---
 
@@ -70,20 +71,22 @@ ollama run llama3   # downloads (if needed) and serves the model
 # Generate (single prompt)
 curl http://localhost:11434/api/generate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"llama3","prompt":"Hello from Ollama"}'
+  -d '{"model":"qwen3.5:3b","prompt":"Hello from Ollama","stream":false}'
 
 # Chat (multi‑turn)
 curl http://localhost:11434/api/chat \
   -H 'Content-Type: application/json' \
-  -d '{"model":"llama3","messages":[{"role":"user","content":"Summarize: local model hosting"}]}'
+  -d '{"model":"qwen3.5:3b","messages":[{"role":"user","content":"Summarize: local model hosting"}],"stream":false}'
 ```
 
 ### Model lifecycle
 
 ```bash
-ollama list                 # installed models
+ollama ls                   # installed models
+ollama ps                   # running models
 ollama pull <model>         # download without running
 ollama show <model>         # metadata, families, size
+ollama stop <model>         # unload from memory
 ollama rm <model[:tag]>     # free disk space
 ```
 
@@ -91,24 +94,24 @@ ollama rm <model[:tag]>     # free disk space
 
 ```text
 # Modelfile
-FROM llama3
+FROM qwen3.5:3b
 PARAMETER temperature 0.1
 SYSTEM You are a terse code fixer.
 ```
 
 ```bash
-ollama create -f Modelfile my-code-fixer
+ollama create my-code-fixer -f Modelfile
 ollama run my-code-fixer
 ```
 
 ### OpenAI-compatible clients
 
-Many tools can talk to Ollama via OpenAI‑style endpoints. Point them at `http://localhost:11434/v1` and select your local model name.
+Many tools can talk to Ollama via OpenAI‑style endpoints. Point them at `http://localhost:11434/v1/` and select your local model name (API key required by most clients, but ignored by Ollama).
 
 ```bash
 # Example: Node client using OPENAI_BASE_URL
-export OPENAI_BASE_URL=http://localhost:11434/v1
-export OPENAI_API_KEY=not-needed
+export OPENAI_BASE_URL=http://localhost:11434/v1/
+export OPENAI_API_KEY=ollama
 node your_client.js
 ```
 
@@ -125,15 +128,14 @@ journalctl -u ollama -f
 - Docker (isolated):
 
 ```bash
-docker run -d --name ollama -p 11434:11434 ollama/ollama
-docker exec -it ollama ollama run llama3
+docker run -d --name ollama -p 11434:11434 -v ollama:/root/.ollama ollama/ollama
+docker exec -it ollama ollama run qwen3.5:3b
 ```
 
 - Bind to a different interface/port if needed:
 
 ```bash
-export OLLAMA_HOST=0.0.0.0:11434
-ollama serve
+OLLAMA_HOST=0.0.0.0:11434 ollama serve
 ```
 
 ---
@@ -148,8 +150,9 @@ ollama serve
 
 ## Privacy guide
 
-- After download, inference runs locally; keep agents pointed at `localhost`.
-- Avoid exposing the API to the internet; disable telemetry in dependent tools.
+- For **local** models (`http://localhost:11434`), prompts stay on-device.
+- If you use **Ollama cloud models** or **web search**, prompts are sent to `ollama.com` (content is processed but not stored per Ollama).
+- For strict local-only, disable Ollama cloud features (`OLLAMA_NO_CLOUD=1` or `~/.ollama/server.json` with `"disable_ollama_cloud": true`) and restart Ollama.
 
 ---
 
@@ -167,11 +170,13 @@ ollama serve
 ```bash
 ollama serve
 ollama run <model>
-ollama list
+ollama ls
+ollama ps
 ollama pull <model>
 ollama show <model>
+ollama stop <model>
 ollama rm <model>
-ollama create -f Modelfile <name>
+ollama create <name> -f Modelfile
 ```
 
 **Key env**
