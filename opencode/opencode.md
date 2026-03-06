@@ -1,6 +1,6 @@
 # OpenCode (CLI Coding Agent)
 
-![OpenCode terminal UI](https://github.com/sst/opencode/raw/dev/packages/web/src/assets/lander/screenshot.png)
+![OpenCode terminal UI](https://github.com/anomalyco/opencode/raw/dev/packages/web/src/assets/lander/screenshot.png)
 
 ## Index
 
@@ -26,13 +26,13 @@
 
 ## Overview
 
-**What it is.** OpenCode is an **open-source AI coding agent built for the terminal**. It analyzes, edits, and refactors your codebase with LLMs, is **provider-agnostic** (75+ providers via Models.dev), supports **local models**, integrates with **LSP servers** for live diagnostics, and offers **shareable sessions**, **GitHub/GitLab automation**, and a **headless server/API**. It also powers a **web UI** and IDE integrations, but this guide focuses on the CLI/TUI. ([Opencode][1])
+**What it is.** OpenCode is an **open-source AI coding agent built for the terminal**. It analyzes, edits, and refactors your codebase with LLMs, is **provider-agnostic** (75+ providers via the AI SDK and Models.dev), supports **local models**, integrates with **LSP servers** for live diagnostics, and offers **shareable sessions**, **GitHub/GitLab automation**, and a **headless server/API**. It also powers a **web UI** and IDE integrations, but this guide focuses on the CLI/TUI. ([Opencode][1], [Opencode][3])
 
 **Key ideas**
 
-- **Native terminal UI** with Plan/Build modes, file references (`@`), shell commands (`!`), and slash-commands (`/connect`, `/models`, `/undo`, `/redo`, `/share`, `/compact`, etc.). ([Opencode][2])
-- **Models & providers**: connect any major API (Anthropic, OpenAI, Bedrock, Groq, xAI, etc.) or local inference (e.g. LM Studio) via providers; **Claude Pro/Max** and **OpenCode Zen** are first-class paths. ([Opencode][3])
-- **Config-driven**: JSON/JSONC config with merged global and per-project files; explicit controls for **permissions**, **MCP servers**, **LSP**, **commands**, **formatters**, **themes**, **autoupdate**, and **share** modes. ([Opencode][4])
+- **Native terminal UI** with Plan/Build modes, file references (`@`), shell commands (`!`), and slash-commands (`/connect`, `/models`, `/undo`, `/redo`, `/share`, `/compact`, `/details`, `/themes`, etc.). ([Opencode][2])
+- **Models & providers**: connect any major API (Anthropic, OpenAI, Bedrock, Groq, xAI, etc.) or local inference (e.g. LM Studio) via providers; **OpenCode Zen** and **OpenCode Go** are first-class paths, and OpenAI/GitHub Copilot subscriptions are supported too. ([Opencode][3])
+- **Config-driven**: JSON/JSONC config with merged global and per-project files; explicit controls for **permissions**, **MCP servers**, **LSP**, **commands**, **formatters**, **autoupdate**, and **share** modes, plus separate `tui.json` files for **themes** and keybinds. ([Opencode][4], [Opencode][2])
 - **Privacy posture**: project code is not stored by OpenCode; **sharing is opt-in** and can be disabled globally or per-project. ([Opencode][5])
 
 ---
@@ -51,24 +51,25 @@ curl -fsSL https://opencode.ai/install | bash
 
 ```bash
 # macOS/Linux
-brew install sst/tap/opencode
+brew install anomalyco/tap/opencode
+brew install opencode
 
 # Node toolchains
-npm install -g opencode-ai
-bun install -g opencode-ai
-pnpm install -g opencode-ai
+npm install -g opencode-ai@latest
+bun install -g opencode-ai@latest
+pnpm install -g opencode-ai@latest
 yarn global add opencode-ai
 
-# Arch (paru)
+# Arch
+sudo pacman -S opencode
 paru -S opencode-bin
 
 # Windows
 choco install opencode
-winget install opencode
-scoop bucket add extras && scoop install extras/opencode
+scoop install opencode
 
 # Other options
-mise use --pin -g ubi:sst/opencode
+mise use -g opencode
 nix run nixpkgs#opencode
 ```
 
@@ -84,7 +85,7 @@ OpenCode supports 75+ providers through the **AI SDK** and **Models.dev**; crede
    opencode
    ```
 
-2. Run `/connect` and choose **OpenCode Zen** to use the curated model list. Follow the browser flow at `opencode.ai/auth` and then select a model with `/models`. ([Opencode][3])
+2. Run `/connect` and choose **OpenCode Zen** to use the curated model list. Follow the browser flow at `opencode.ai/auth`, create/copy your API key, and then select a model with `/models`. If you want OpenCode’s lower-cost hosted subscription instead, **OpenCode Go** uses the same flow. ([Opencode][3])
 
 You can also connect providers directly from the TUI (`/connect → Anthropic → Claude Pro/Max`, OpenAI, etc.) or via the CLI:
 
@@ -120,7 +121,7 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
   *"How is auth handled in @packages/functions/src/api/index.ts?"* ([Opencode][2])
 - **Run shell** with `!` (captured into context).
   *`!ls -la`* ([Opencode][2])
-- **Connect providers** with `/connect`, pick models with `/models`, and inspect them with `/inspect`. ([Opencode][2], [Opencode][3])
+- **Connect providers** with `/connect`, pick models with `/models`, and toggle tool details with `/details`. ([Opencode][2], [Opencode][3])
 - **Undo / redo** code & messages (`/undo`, `/redo`)—uses Git under the hood. ([Opencode][2])
 - **Share / unshare** a session (`/share`, `/unshare`, manual by default). ([Opencode][13])
 - **Compress long threads** with `/compact` (or `/summarize`) to keep context small. ([Opencode][2])
@@ -139,26 +140,39 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 
 ### Declarative config (global & per-project)
 
-- Global: `~/.config/opencode/opencode.json`
-- Project: `./opencode.json` (merged on top of global)
-- Override path with `OPENCODE_CONFIG=/path/to/config.json`
+- Global runtime config: `~/.config/opencode/opencode.json`
+- Global TUI config: `~/.config/opencode/tui.json`
+- Project runtime config: `./opencode.json` (merged on top of global)
+- Project TUI config: `./tui.json`
+- Override runtime path with `OPENCODE_CONFIG=/path/to/config.json`
+- Override TUI path with `OPENCODE_TUI_CONFIG=/path/to/tui.json`
 - Override config directory with `OPENCODE_CONFIG_DIR=/path/to/dir`
-  Supports **JSON/JSONC** + schema at `https://opencode.ai/config.json`. ([Opencode][4])
+- OpenCode also layers remote org defaults from `.well-known/opencode` plus `.opencode` directories for agents, commands, plugins, and related assets.
+  Supports **JSON/JSONC** with schemas at `https://opencode.ai/config.json` and `https://opencode.ai/tui.json`. ([Opencode][4])
 
 **Snippets you’ll reuse**
 
 ```jsonc
-// Select models, set a cheaper small_model, pin theme & updates
+// Select models, set a cheaper small_model, and pin updates
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "anthropic/claude-sonnet-4-5",
   "small_model": "anthropic/claude-haiku-4-5",
-  "theme": "opencode",
   "autoupdate": false
 }
 ```
 
 ([Opencode][4])
+
+```jsonc
+// Put theme and keybind customization in tui.json
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "theme": "opencode"
+}
+```
+
+([Opencode][2], [Opencode][4])
 
 ```jsonc
 // Lock down agent capabilities & bash
@@ -167,9 +181,10 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
   "permission": {
     "edit": "ask",
     "bash": {
-      "git push": "ask",
+      "*": "allow",
+      "git push *": "ask",
       "terraform *": "deny",
-      "*": "allow"
+      "kubectl *": "deny"
     }
   }
 }
@@ -223,7 +238,7 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 
 ### Agents, rules & instructions
 
-- Define **agents** in JSON or Markdown (eg. `~/.config/opencode/agent/*.md`) with custom prompts, models, and allowed tools.
+- Define **agents** in JSON or Markdown (eg. `~/.config/opencode/agents/*.md`) with custom prompts, models, and permissions/tool access.
 - Generate or evolve `AGENTS.md` with `/init` and include **instructions** via `instructions: [...]` and glob patterns.
 - OpenCode merges **project** and **global** rules and uses the Plan/Build modes plus permissions as the default safety baseline. ([Opencode][7], [Opencode][8])
 
@@ -234,15 +249,15 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 
 ### CLI, IDE & headless server
 
-- **CLI non-interactive**: `opencode run "…"` with flags (`--model`, `--agent`, `--session`, `--share`).
-- **Headless HTTP**: `opencode serve` exposes an API (see server docs).
-- **IDE/ACP**: use `opencode acp` to integrate with editors that support the AI Code Protocol (VS Code, Cursor, Windsurf, etc.). ([Opencode][11])
-- **Upgrade** from CLI (`opencode upgrade`). ([Opencode][11])
+- **CLI non-interactive**: `opencode run "…"` with flags (`--model`, `--agent`, `--session`, `--share`, `--attach`).
+- **Headless HTTP**: `opencode serve` exposes an OpenAPI-backed HTTP server; `opencode web` runs the browser/mobile client against the same backend.
+- **IDE/ACP**: the IDE extension auto-installs when you run `opencode` in supported integrated terminals, and `opencode acp` is available for ACP-compatible clients.
+- **Attach & upgrade**: `opencode attach http://host:4096` connects a TUI to an existing backend, and `opencode upgrade` updates the CLI. ([Opencode][11], [Opencode][17], [Opencode][18])
 
 ### GitHub & GitLab automation
 
 - Mention `/opencode` or `/oc` in GitHub issues/PRs; the agent runs **inside your GitHub Action runner**, creating branches/PRs as requested. Install via `opencode github install` or add the workflow manually. ([Opencode][12])
-- Use the equivalent workflow to comment `/opencode` on GitLab merge requests if you install the GitLab integration. ([Opencode][5])
+- On GitLab, mention `@opencode` in GitLab Duo comments or wire OpenCode into CI/CD with the published component and a stored `auth.json`. ([Opencode][15])
 
 ---
 
@@ -250,7 +265,9 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 
 **Pick cost-effective access**
 
-- If available to you, **Claude Pro/Max** is still one of the most cost-effective ways to use OpenCode. Use `/connect → Anthropic → Claude Pro/Max`, or `opencode auth login` from the CLI. ([Opencode][3], [Opencode][11])
+- **OpenCode Zen** is the easiest supported fast path, and **OpenCode Go** is OpenCode’s lower-cost hosted subscription option. ([Opencode][3])
+- If you already pay for **ChatGPT Plus/Pro** or **GitHub Copilot**, connecting those subscriptions can be cheaper than raw API spend. ([Opencode][3])
+- **Anthropic sign-in works**, but OpenCode’s docs note that using **Claude Pro/Max** subscriptions this way is **not officially supported by Anthropic**. ([Opencode][3])
 
 **Right-size the model**
 
@@ -266,7 +283,7 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 **Avoid accidental spend**
 
 - Lock to allowed providers/models with `disabled_providers` and explicit `model` strings. ([Opencode][4])
-- Use CLI `--model` (or `OPENCODE_MODEL`) to pin a cheaper model in batch jobs. ([Opencode][11])
+- Use CLI `--model` to pin a cheaper model in batch jobs, or wire your config to `{env:OPENCODE_MODEL}` if you prefer environment-based overrides. ([Opencode][4], [Opencode][11])
 
 ---
 
@@ -288,7 +305,7 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 
 **Team/enterprise**
 
-- For trials, **disable sharing**; enterprise deployments can restrict share links to SSO users or self-host the share service. ([Opencode][5], [Opencode][13])
+- For trials, **disable sharing**; enterprise deployments can centralize config, integrate SSO, and restrict share links to SSO users. If self-hosted share pages matter, confirm availability before planning around them, because the enterprise docs still describe that path as roadmap work. ([Opencode][5], [Opencode][13])
 
 ---
 
@@ -319,12 +336,12 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 
 **Useful commands**
 
-- `opencode` (launch TUI) • `/connect` • `/init` • `/models` • `/undo` • `/redo` • `/share` • `/unshare` • `/compact` • `!<cmd>` • `@path/to/file` ([Opencode][2], [Opencode][3])
-- `opencode auth login` • `opencode models` • `opencode run "…" --model … --agent …` • `opencode serve` • `opencode acp` • `opencode upgrade` ([Opencode][11])
+- `opencode` (launch TUI) • `/connect` • `/init` • `/models` • `/details` • `/themes` • `/undo` • `/redo` • `/share` • `/unshare` • `/compact` • `!<cmd>` • `@path/to/file` ([Opencode][2], [Opencode][3])
+- `opencode auth login` • `opencode models` • `opencode run "…" --model … --agent …` • `opencode serve` • `opencode web` • `opencode attach http://localhost:4096` • `opencode acp` • `opencode upgrade` ([Opencode][11], [Opencode][18])
 
 **Version signal**
 
-- Active, fast-moving repo (MIT) with frequent releases; this guide is aligned with the docs around **v1.0.134** as of **Dec 7, 2025**. Always consult releases before pinning. ([GitHub][14], [Opencode][1])
+- Active, fast-moving repo (MIT) with frequent releases; this guide has been rechecked against the public docs current on **March 5, 2026** and the latest tagged release **v1.2.20** published on **March 6, 2026**. Always consult releases before pinning. ([GitHub][14], [Opencode][1])
 
 ---
 
@@ -343,5 +360,8 @@ If you want, I can generate a **starter `opencode.json`** tuned for your stacks 
 [11]: https://opencode.ai/docs/cli/ "CLI | opencode"
 [12]: https://opencode.ai/docs/github/ "GitHub | opencode"
 [13]: https://opencode.ai/docs/share/ "Share | opencode"
-[14]: https://github.com/sst/opencode "GitHub - sst/opencode: AI coding agent, built for the terminal."
+[14]: https://github.com/anomalyco/opencode/releases/latest "Latest release | opencode"
+[15]: https://opencode.ai/docs/gitlab/ "GitLab | opencode"
 [16]: https://docs.exa.ai/reference/exa-mcp "Exa MCP"
+[17]: https://opencode.ai/docs/ide/ "IDE | opencode"
+[18]: https://opencode.ai/docs/server/ "Server | opencode"

@@ -57,8 +57,7 @@ Add the MCP server to your `opencode.json` (global or per‑project). ([Opencode
     }
   },
   "tools": {
-    "websearch": false,
-    "codesearch": false
+    "websearch": false
   }
 }
 ```
@@ -68,13 +67,13 @@ Add the MCP server to your `opencode.json` (global or per‑project). ([Opencode
 ## Beginner usage
 
 - Ask OpenCode to search the web; when tool selection matters, pick the SearXNG tool.
-- If you disable built‑in search tools, OpenCode will rely on the SearXNG MCP server by default.
+- If you disable built‑in web search, OpenCode will rely on the SearXNG MCP server for search prompts by default.
 
 ---
 
 ## Pro usage
 
-- **Pin SearXNG only** by disabling hosted search tools (`websearch`, `codesearch`) in config. ([Opencode][7])
+- **Pin SearXNG only** by disabling the built‑in `websearch` tool in config. ([Opencode][7])
 - **Trim engines** in SearXNG for faster, cleaner results. ([SearXNG Guide][3])
 - **Use local models** for end‑to‑end private workflows. ([Opencode][5])
 
