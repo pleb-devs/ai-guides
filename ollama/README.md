@@ -12,6 +12,8 @@ This folder contains practical docs for hosting local models with **Ollama** and
   - Point Goose (Desktop/CLI) at `http://localhost:11434` via Goose’s Ollama provider; model naming, security notes, and common errors.
 - [ollama-opencode.md](./ollama-opencode.md) — Integration with OpenCode
   - Point OpenCode at `http://localhost:11434/v1` using an OpenAI-compatible provider config; includes global/project config and privacy controls.
+- [ollama-searxng.md](./ollama-searxng.md) — Force local web search through SearXNG
+  - Disable Ollama cloud web search, expose a local `searxng_search` tool, and route search through your own SearXNG instance.
 
 ## Choose a Path
 
@@ -19,6 +21,7 @@ This folder contains practical docs for hosting local models with **Ollama** and
 - Automating or running headless? Read ollama-cli.md.
 - Connecting to Goose? Jump to ollama-goose.md.
 - Connecting to OpenCode? Jump to ollama-opencode.md.
+- Want Ollama web searches to stay local? Jump to ollama-searxng.md.
 
 ## Related
 
@@ -26,5 +29,6 @@ This folder contains practical docs for hosting local models with **Ollama** and
   - [goose-desktop.md](../goose/goose-desktop.md)
   - [goose-cli.md](../goose/goose-cli.md)
   - [goose-ollama.md](../goose/goose-ollama.md)
+  - [goose-searxng.md](../goose/goose-searxng.md)
 - OpenCode usage guides live in the `opencode/` folder:
   - [opencode.md](../opencode/opencode.md)

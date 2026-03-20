@@ -29,7 +29,7 @@
 
 ### 1) Run SearXNG locally
 
-Use the local SearXNG guide for a minimal Docker setup (binds to `localhost:8888` and enables JSON search output). ([SearXNG Guide][3])
+Use the local SearXNG guide for a minimal Docker setup (binds to `localhost:8080` and enables JSON search output). ([SearXNG Guide][3])
 
 ### 2) Add the MCP server
 
@@ -52,7 +52,7 @@ Add the MCP server to your `opencode.json` (global or per‑project). ([Opencode
       "command": ["uvx", "mcp-searxng"],
       "enabled": true,
       "environment": {
-        "SEARXNG_URL": "http://localhost:8888"
+        "SEARXNG_URL": "http://localhost:8080"
       }
     }
   },
@@ -103,7 +103,7 @@ Add the MCP server to your `opencode.json` (global or per‑project). ([Opencode
 
 **Quick checklist**
 
-- SearXNG running locally (`http://localhost:8888`).
+- SearXNG running locally (`http://localhost:8080`).
 - MCP server running (`uvx mcp-searxng`).
 - OpenCode config includes the SearXNG MCP server.
 
