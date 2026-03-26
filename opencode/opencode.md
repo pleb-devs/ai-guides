@@ -341,7 +341,7 @@ Commit `AGENTS.md` so the agent understands your structure and conventions. ([Op
 
 **Version signal**
 
-- Active, fast-moving repo (MIT) with frequent releases; this guide has been rechecked against the public docs current on **March 5, 2026** and the latest tagged release **v1.2.20** published on **March 6, 2026**. Always consult releases before pinning. ([GitHub][14], [Opencode][1])
+- Active, fast-moving repo (MIT) with frequent releases; this guide was rechecked against the public docs on **March 26, 2026**, and the latest tagged release at review time was **v1.3.3** published on **March 26, 2026**. Always consult releases before pinning. ([GitHub][14], [Opencode][1])
 
 ---
 
