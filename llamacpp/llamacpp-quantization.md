@@ -1,1 +1,259 @@
-IyBsbGFtYS5jcHAgUXVhbnRpemF0aW9uIOKAlCBQbGViRGV2cyBBSSBHdWlkZQoKPiBRdWFudGl6ZSBtb2RlbHMgdG8gcmVkdWNlIHNpemUgYW5kIGluY3JlYXNlIGluZmVyZW5jZSBzcGVlZC4gQ29udmVydCBIdWdnaW5nIEZhY2UgbW9kZWxzIHRvIEdHVUYsIGNob29zZSBxdWFudGl6YXRpb24gbGV2ZWxzLCBhbmQgb3B0aW1pemUgZm9yIHlvdXIgaGFyZHdhcmUuCgotLS0KCiMjIEluZGV4CgotIFtPdmVydmlld10oI292ZXJ2aWV3KQotIFtTZXR1cF0oI3NldHVwKQogIC0gW0dldCB0aGUgdG9vbHNdKCNnZXQtdGhlLXRvb2xzKQogIC0gW1ByZXBhcmUgYSBtb2RlbF0oI3ByZXBhcmUtYS1tb2RlbCkKLSBbQmVnaW5uZXIgdXNhZ2VdKCNiZWdpbm5lci11c2FnZSkKLSBbUHJvIHVzYWdlXSgjcHJvLXVzYWdlKQogIC0gW1F1YW50aXphdGlvbiB0eXBlcyBleHBsYWluZWRdKCNxdWFudGl6YXRpb24tdHlwZXMtZXhwbGFpbmVkKQogIC0gW0NvbnZlcnQgZnJvbSBIdWdnaW5nIEZhY2VdKCNjb252ZXJ0LWZyb20taHVnZ2luZy1mYWNlKQogIC0gW1F1YW50aXplIHdpdGggbGxhbWEtcXVhbnRpemVdKCNxdWFudGl6ZS13aXRoLWxsYW1hLXF1YW50aXplKQogIC0gW0ltcG9ydGFuY2UgbWF0cml4IHF1YW50aXphdGlvbl0oI2ltcG9ydGFuY2UtbWF0cml4LXF1YW50aXphdGlvbikKICAtIFtWZXJpZnkgYW5kIHRlc3RdKCN2ZXJpZnktYW5kLXRlc3QpCi0gW0Nvc3Qgc2F2aW5ncyBndWlkZV0oI2Nvc3Qtc2F2aW5ncy1ndWlkZSkKLSBbUHJpdmFjeSBndWlkZV0oI3ByaXZhY3ktZ3VpZGUpCi0gW1NlY3VyaXR5IGd1aWRlXSgjc2VjdXJpdHktZ3VpZGUpCi0gW0FwcGVuZGl4XSgjYXBwZW5kaXgpCgotLS0KCiMjIE92ZXJ2aWV3CgoqKlF1YW50aXphdGlvbioqIHJlZHVjZXMgbW9kZWwgcHJlY2lzaW9uIChlLmcuLCAxNi1iaXQg4oaSIDQtYml0KSB0bzoKCi0gKipTaHJpbmsgZmlsZSBzaXplKiogKDdCIG1vZGVsOiB+MTRHQiBGUDE2IOKGkiB+NEdCIFE0KQotICoqUmVkdWNlIFZSQU0gdXNhZ2UqKiAoZml0IGxhcmdlciBtb2RlbHMgb24gY29uc3VtZXIgR1BVcykKLSAqKlNwZWVkIHVwIGluZmVyZW5jZSoqIChsZXNzIGRhdGEgdG8gbW92ZSkKCmxsYW1hLmNwcCB1c2VzIHRoZSAqKkdHVUYgZm9ybWF0KirigJRhIHNpbmdsZS1maWxlIGZvcm1hdCBjb250YWluaW5nIG1vZGVsIHdlaWdodHMsIHRva2VuaXplciwgYW5kIG1ldGFkYXRhLgoKLS0tCgojIyBTZXR1cAoKIyMjIEdldCB0aGUgdG9vbHMKCkJ1aWxkIGxsYW1hLmNwcCBmcm9tIHNvdXJjZSB0byBnZXQgcXVhbnRpemF0aW9uIHRvb2xzOgoKYGBgYmFzaApnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL2dnbWwtb3JnL2xsYW1hLmNwcApjZCBsbGFtYS5jcHAKY21ha2UgLUIgYnVpbGQKY21ha2UgLS1idWlsZCBidWlsZCAtLWNvbmZpZyBSZWxlYXNlIC1qCgojIFRvb2xzIGF2YWlsYWJsZToKIyBidWlsZC9iaW4vbGxhbWEtcXVhbnRpemUKIyBBbHNvIG5lZWQgUHl0aG9uIGZvciBjb252ZXJzaW9uCnBpcCBpbnN0YWxsIC1yIHJlcXVpcmVtZW50cy9yZXF1aXJlbWVudHMtY29udmVydF9oZl90b19nZ3VmLnR4dApgYGAKCiMjIyBQcmVwYXJlIGEgbW9kZWwKCllvdSBuZWVkIGVpdGhlcjoKCi0gQSBIdWdnaW5nIEZhY2UgbW9kZWwgKHdpbGwgYmUgY29udmVydGVkIHRvIEdHVUYpCi0gQW4gZXhpc3RpbmcgR0dVRiBmaWxlIChjYW4gYmUgcmUtcXVhbnRpemVkKQoKLS0tCgojIyBCZWdpbm5lciB1c2FnZQoKKipRdWljayBxdWFudGl6YXRpb24gZnJvbSBhbiBleGlzdGluZyBHR1VGOioqCgpgYGBiYXNoCiMgUXVhbnRpemUgdG8gUTRfS19NIChnb29kIGJhbGFuY2UpCi4vYnVpbGQvYmluL2xsYW1hLXF1YW50aXplIG1vZGVsLWYxNi5nZ3VmIG1vZGVsLVE0X0tfTS5nZ3VmIFE0X0tfTQpgYGAKCioqQ29tbW9uIHdvcmtmbG93OioqCgoxLiBEb3dubG9hZCBhIG1vZGVsIGZyb20gSHVnZ2luZyBGYWNlCjIuIENvbnZlcnQgdG8gR0dVRiAoaWYgbm90IGFscmVhZHkpCjMuIFF1YW50aXplIHRvIGRlc2lyZWQgbGV2ZWwKNC4gVGVzdCB3aXRoIGxsYW1hLWNsaQoKLS0tCgojIyBQcm8gdXNhZ2UKCiMjIyBRdWFudGl6YXRpb24gdHlwZXMgZXhwbGFpbmVkCgp8IFR5cGUgfCBCaXRzIHwgU2l6ZSAoN0IpIHwgUXVhbGl0eSB8IFNwZWVkIHwgVXNlIENhc2UgfAp8IC0tLS0gfCAtLS0tIHwgLS0tLS0tLS0tIHwgLS0tLS0tLSB8IC0tLS0tIHwgLS0tLS0tLS0gfAp8IEYzMiB8IDMyIHwgfjI4R0IgfCBCZXN0IHwgU2xvdyB8IFJlZmVyZW5jZSBvbmx5IHwKfCBGMTYgfCAxNiB8IH4xNEdCIHwgRXhjZWxsZW50IHwgU2xvdyB8IEhpZ2gtZW5kIEdQVXMgfAp8IFE4XzAgfCA4IHwgfjdHQiB8IFZlcnkgZ29vZCB8IEZhc3QgfCBXaGVuIHlvdSBoYXZlIFJBTSB8CnwgUTZfSyB8IDYgfCB+NS41R0IgfCBHcmVhdCB8IEZhc3QgfCBRdWFsaXR5LWZvY3VzZWQgfAp8IFE1X0tfTSB8IDUgfCB+NC44R0IgfCBWZXJ5IGdvb2QgfCBGYXN0IHwgR29vZCBiYWxhbmNlIHwKfCAqKlE0X0tfTSoqIHwgNCB8IH40R0IgfCBHb29kIHwgRmFzdCB8ICoqUmVjb21tZW5kZWQgZGVmYXVsdCoqIHwKfCBRNF9LX1MgfCA0IHwgfjMuOEdCIHwgR29vZCB8IEZhc3QgfCBTbGlnaHRseSBzbWFsbGVyIHwKfCBRM19LX00gfCAzIHwgfjNHQiB8IEFjY2VwdGFibGUgfCBGYXN0ZXIgfCBMaW1pdGVkIFJBTSB8CnwgUTJfSyB8IDIgfCB+Mi41R0IgfCBEZWdyYWRlZCB8IEZhc3Rlc3QgfCBFeHRyZW1lIGNvbnN0cmFpbnRzIHwKfCBJUTRfWFMgfCB+NCB8IH4zLjZHQiB8IEdvb2QgfCBGYXN0IHwgaS1xdWFudHMsIHNtYWxsZXIgfAp8IElRM19YWFMgfCB+MyB8IH4yLjZHQiB8IEZhaXIgfCBGYXN0IHwgQWdncmVzc2l2ZSBjb21wcmVzc2lvbiB8CgoqKlJlY29tbWVuZGF0aW9uczoqKgoKLSAqKlE0X0tfTSoqOiBCZXN0IGFsbC1hcm91bmQgY2hvaWNlIGZvciBtb3N0IHVzZXJzCi0gKipRNV9LX00qKjogV2hlbiBxdWFsaXR5IG1hdHRlcnMgbW9yZSB0aGFuIHNpemUKLSAqKlE2X0sgLyBROF8wKio6IE1heGltdW0gcXVhbGl0eSB3aXRoaW4gcXVhbnRpemF0aW9uCi0gKipRM19LX00gLyBJUTNfWFhTKio6IFdoZW4gUkFNIGlzIHNldmVyZWx5IGxpbWl0ZWQKLSAqKkF2b2lkIFEyX0sqKiB1bmxlc3MgYWJzb2x1dGVseSBuZWNlc3NhcnkgKHNpZ25pZmljYW50IHF1YWxpdHkgbG9zcykKCiMjIyBDb252ZXJ0IGZyb20gSHVnZ2luZyBGYWNlCgpgYGBiYXNoCiMgRG93bmxvYWQgbW9kZWwgKG9yIHVzZSBsb2NhbCBwYXRoKQojIEV4YW1wbGU6IG1ldGEtbGxhbWEvTGxhbWEtMy4yLTNCLUluc3RydWN0CgojIENvbnZlcnQgdG8gR0dVRiAoRjE2KQpweXRob24gY29udmVydF9oZl90b19nZ3VmLnB5IFwKICAvcGF0aC90by9oZi1tb2RlbCBcCiAgLS1vdXRmaWxlIG1vZGVsLWYxNi5nZ3VmIFwKICAtLW91dHR5cGUgZjE2CgojIE9yIGRpcmVjdGx5IHRvIGEgcXVhbnRpemVkIGZvcm1hdApweXRob24gY29udmVydF9oZl90b19nZ3VmLnB5IFwKICAvcGF0aC90by9oZi1tb2RlbCBcCiAgLS1vdXRmaWxlIG1vZGVsLVE4XzAuZ2d1ZiBcCiAgLS1vdXR0eXBlIHE4XzAKYGBgCgojIyMgUXVhbnRpemUgd2l0aCBsbGFtYS1xdWFudGl6ZQoKYGBgYmFzaAojIEJhc2ljIHF1YW50aXphdGlvbgouL2J1aWxkL2Jpbi9sbGFtYS1xdWFudGl6ZSBpbnB1dC5nZ3VmIG91dHB1dC5nZ3VmIDx0eXBlPgoKIyBFeGFtcGxlcwouL2J1aWxkL2Jpbi9sbGFtYS1xdWFudGl6ZSBtb2RlbC1mMTYuZ2d1ZiBtb2RlbC1RNF9LX00uZ2d1ZiBRNF9LX00KLi9idWlsZC9iaW4vbGxhbWEtcXVhbnRpemUgbW9kZWwtZjE2LmdndWYgbW9kZWwtUTVfS19NLmdndWYgUTVfS19NCi4vYnVpbGQvYmluL2xsYW1hLXF1YW50aXplIG1vZGVsLWYxNi5nZ3VmIG1vZGVsLVE4XzAuZ2d1ZiBROF8wCgojIFdpdGggc3BlY2lmaWMgdGhyZWFkIGNvdW50Ci4vYnVpbGQvYmluL2xsYW1hLXF1YW50aXplIG1vZGVsLWYxNi5nZ3VmIG1vZGVsLVE0X0tfTS5nZ3VmIFE0X0tfTSA4CmBgYAoKIyMjIEltcG9ydGFuY2UgbWF0cml4IHF1YW50aXphdGlvbgoKVXNlIGFuIGltcG9ydGFuY2UgbWF0cml4IChpbWF0cml4KSBmb3IgYmV0dGVyIHF1YWxpdHkgYXQgbG93IGJpdC13aWR0aHM6CgpgYGBiYXNoCiMgR2VuZXJhdGUgaW1wb3J0YW5jZSBtYXRyaXggZnJvbSBjYWxpYnJhdGlvbiBkYXRhCi4vYnVpbGQvYmluL2xsYW1hLWltYXRyaXggXAogIC1tIG1vZGVsLWYxNi5nZ3VmIFwKICAtZiBjYWxpYnJhdGlvbl9kYXRhLnR4dCBcCiAgLW8gaW1hdHJpeC5kYXQKCiMgUXVhbnRpemUgd2l0aCBpbXBvcnRhbmNlIG1hdHJpeAouL2J1aWxkL2Jpbi9sbGFtYS1xdWFudGl6ZSBcCiAgLS1pbWF0cml4IGltYXRyaXguZGF0IFwKICBtb2RlbC1mMTYuZ2d1ZiBcCiAgbW9kZWwtSVE0X1hTLmdndWYgXAogIElRNF9YUwpgYGAKCkNhbGlicmF0aW9uIGRhdGEgc2hvdWxkIGJlIHJlcHJlc2VudGF0aXZlIHRleHQgKFdpa2lwZWRpYSBleGNlcnB0cywgY29kZSBzYW1wbGVzLCBldGMuKS4KCiMjIyBWZXJpZnkgYW5kIHRlc3QKCmBgYGJhc2gKIyBDaGVjayB0aGUgcXVhbnRpemVkIG1vZGVsCi4vYnVpbGQvYmluL2xsYW1hLWNsaSAtbSBtb2RlbC1RNF9LX00uZ2d1ZiBcCiAgLXAgIlRoZSBtZWFuaW5nIG9mIGxpZmUgaXMiIC1uIDUwCgojIENvbXBhcmUgb3V0cHV0cwouL2J1aWxkL2Jpbi9sbGFtYS1jbGkgLW0gbW9kZWwtZjE2LmdndWYgLXAgIkhlbGxvIiAtbiAyMAouL2J1aWxkL2Jpbi9sbGFtYS1jbGkgLW0gbW9kZWwtUTRfS19NLmdndWYgLXAgIkhlbGxvIiAtbiAyMAoKIyBNZWFzdXJlIHBlcnBsZXhpdHkgKHF1YWxpdHkgbWV0cmljKQouL2J1aWxkL2Jpbi9sbGFtYS1wZXJwbGV4aXR5IC1tIG1vZGVsLVE0X0tfTS5nZ3VmIC1mIHRlc3QudHh0CmBgYAoKLS0tCgojIyBDb3N0IHNhdmluZ3MgZ3VpZGUKCi0gKipEb24ndCBvdmVyLXF1YW50aXplKio6IFE0X0tfTSBpcyB1c3VhbGx5IHRoZSBzd2VldCBzcG90Ci0gKipCYXRjaCBxdWFudGl6ZSoqOiBDcmVhdGUgbXVsdGlwbGUgcXVhbnRpemF0aW9uIGxldmVscyBhbmQgdGVzdCBiZWZvcmUgZGVwbG95aW5nCi0gKipVc2UgaW1hdHJpeCoqIGZvciBRMyBhbmQgYmVsb3figJRpbXByb3ZlcyBxdWFsaXR5IHNpZ25pZmljYW50bHkKLSAqKlNoYXJlIEdHVUYgZmlsZXMqKjogUHJlLXF1YW50aXplZCBtb2RlbHMgc2F2ZSBjb21wdXRlIGZvciBldmVyeW9uZQotIE1hbnkgcXVhbnRpemVkIG1vZGVscyBhcmUgYWxyZWFkeSBhdmFpbGFibGUgb24gSHVnZ2luZyBGYWNl4oCUY2hlY2sgYmVmb3JlIHF1YW50aXppbmcgeW91cnNlbGYKCi0tLQoKIyMgUHJpdmFjeSBndWlkZQoKLSBRdWFudGl6YXRpb24gaGFwcGVucyBsb2NhbGx54oCUbm8gZGF0YSBzZW50IGFueXdoZXJlCi0gVGhlIHByb2Nlc3Mgb25seSB1c2VzIHRoZSBtb2RlbCB3ZWlnaHRzIChubyB1c2VyIGRhdGEgaW52b2x2ZWQpCi0gUXVhbnRpemVkIG1vZGVscyBjYW4gYmUgc2hhcmVkIHdpdGhvdXQgcHJpdmFjeSBjb25jZXJucyAodGhleSdyZSBqdXN0IGNvbXByZXNzZWQgd2VpZ2h0cykKCi0tLQoKIyMgU2VjdXJpdHkgZ3VpZGUKCi0gVmVyaWZ5IHNvdXJjZSBtb2RlbHMgYmVmb3JlIGNvbnZlcnNpb24gKGNoZWNrIGhhc2hlcywgdXNlIHRydXN0ZWQgcmVwb3MpCi0gR0dVRiBmaWxlcyBjYW4gY29udGFpbiBhcmJpdHJhcnkgbWV0YWRhdGHigJRpbnNwZWN0IGJlZm9yZSBydW5uaW5nIHVudHJ1c3RlZCBmaWxlczoKCmBgYGJhc2gKIyBJbnNwZWN0IEdHVUYgbWV0YWRhdGEKcHl0aG9uIC1jICIKZnJvbSBnZ3VmIGltcG9ydCBHR1VGUmVhZGVyCnJlYWRlciA9IEdHVUZSZWFkZXIoJ21vZGVsLmdndWYnKQpmb3Iga2V5IGluIHJlYWRlci5maWVsZHM6CiAgICBwcmludChmJ3trZXl9OiB7cmVhZGVyLmZpZWxkc1trZXldLmRhdGF9JykKIgpgYGAKCi0gU3RvcmUgb3JpZ2luYWwgRlAxNi9GMzIgbW9kZWxzIGlmIHlvdSBuZWVkIHRvIHJlLXF1YW50aXplIGxhdGVyCgotLS0KCiMjIEFwcGVuZGl4CgoqKlF1YW50aXphdGlvbiBkZWNpc2lvbiB0cmVlOioqCgpgYGB0ZXh0CkhhdmUgMjRHQisgVlJBTT8g4oaSIFE2X0sgb3IgUThfMApIYXZlIDgtMTZHQiBWUkFNPyDihpIgUTRfS19NIG9yIFE1X0tfTQpIYXZlIDQtOEdCIFZSQU0/IOKGkiBRNF9LX1Mgb3IgUTNfS19NCkhhdmUgPDRHQiBWUkFNPyDihpIgSVEzX1hYUyBvciBRMl9LICh3aXRoIGNhdmVhdHMpCmBgYAoKKipRdWljayBjb21tYW5kcyoqCgpgYGBiYXNoCiMgQ29udmVydCBIRiDihpIgR0dVRgpweXRob24gY29udmVydF9oZl90b19nZ3VmLnB5IC4vaGYtbW9kZWwgLS1vdXRmaWxlIG1vZGVsLmdndWYKCiMgUXVhbnRpemUKLi9sbGFtYS1xdWFudGl6ZSBtb2RlbC1mMTYuZ2d1ZiBtb2RlbC1RNF9LX00uZ2d1ZiBRNF9LX00KCiMgVGVzdAouL2xsYW1hLWNsaSAtbSBtb2RlbC1RNF9LX00uZ2d1ZiAtcCAiSGVsbG8iIC1uIDUwCmBgYAoKKipGaWxlIHNpemUgcmVmZXJlbmNlICg3QiBtb2RlbCkqKgoKfCBRdWFudGl6YXRpb24gfCBBcHByb3hpbWF0ZSBTaXplIHwKfCAtLS0tLS0tLS0tLS0gfCAtLS0tLS0tLS0tLS0tLS0tIHwKfCBGMTYgfCAxNCBHQiB8CnwgUThfMCB8IDcgR0IgfAp8IFE2X0sgfCA1LjUgR0IgfAp8IFE1X0tfTSB8IDQuOCBHQiB8CnwgUTRfS19NIHwgNC4wIEdCIHwKfCBRM19LX00gfCAzLjAgR0IgfAp8IElRM19YWFMgfCAyLjYgR0IgfAoKKipTZWUgYWxzbyoqCgotIFtsbGFtYWNwcC1jbGkubWRdKC4vbGxhbWFjcHAtY2xpLm1kKSDigJQgcnVuIHF1YW50aXplZCBtb2RlbHMKLSBbbGxhbWFjcHAtc2VydmVyLm1kXSguL2xsYW1hY3BwLXNlcnZlci5tZCkg4oCUIHNlcnZlIHF1YW50aXplZCBtb2RlbHMKLSBbbGxhbWEuY3BwIHF1YW50aXplIFJFQURNRV0oaHR0cHM6Ly9naXRodWIuY29tL2dnbWwtb3JnL2xsYW1hLmNwcC9ibG9iL21hc3Rlci90b29scy9xdWFudGl6ZS9SRUFETUUubWQpCg==
+# llama.cpp Quantization — PlebDevs AI Guide
+
+> Quantize models to reduce size and increase inference speed. Convert Hugging Face models to GGUF, choose quantization levels, and optimize for your hardware.
+
+---
+
+## Index
+
+- [Overview](#overview)
+- [Setup](#setup)
+  - [Get the tools](#get-the-tools)
+  - [Prepare a model](#prepare-a-model)
+- [Beginner usage](#beginner-usage)
+- [Pro usage](#pro-usage)
+  - [Quantization types explained](#quantization-types-explained)
+  - [Convert from Hugging Face](#convert-from-hugging-face)
+  - [Quantize with llama-quantize](#quantize-with-llama-quantize)
+  - [Importance matrix quantization](#importance-matrix-quantization)
+  - [Verify and test](#verify-and-test)
+- [Cost savings guide](#cost-savings-guide)
+- [Privacy guide](#privacy-guide)
+- [Security guide](#security-guide)
+- [Appendix](#appendix)
+
+---
+
+## Overview
+
+**Quantization** reduces model precision (e.g., 16-bit → 4-bit) to:
+
+- **Shrink file size** (7B model: ~14GB FP16 → ~4GB Q4)
+- **Reduce VRAM usage** (fit larger models on consumer GPUs)
+- **Speed up inference** (less data to move)
+
+llama.cpp uses the **GGUF format**—a single-file format containing model weights, tokenizer, and metadata.
+
+---
+
+## Setup
+
+### Get the tools
+
+Build llama.cpp from source to get quantization tools:
+
+```bash
+git clone https://github.com/ggml-org/llama.cpp
+cd llama.cpp
+cmake -B build
+cmake --build build --config Release -j
+
+# Tools available:
+# build/bin/llama-quantize
+# Also need Python for conversion
+pip install -r requirements/requirements-convert_hf_to_gguf.txt
+```
+
+### Prepare a model
+
+You need either:
+
+- A Hugging Face model (will be converted to GGUF)
+- An existing GGUF file (can be re-quantized)
+
+---
+
+## Beginner usage
+
+**Quick quantization from an existing GGUF:**
+
+```bash
+# Quantize to Q4_K_M (good balance)
+./build/bin/llama-quantize model-f16.gguf model-Q4_K_M.gguf Q4_K_M
+```
+
+**Common workflow:**
+
+1. Download a model from Hugging Face
+2. Convert to GGUF (if not already)
+3. Quantize to desired level
+4. Test with llama-cli
+
+---
+
+## Pro usage
+
+### Quantization types explained
+
+| Type | Bits | Size (7B) | Quality | Speed | Use Case |
+| ---- | ---- | --------- | ------- | ----- | -------- |
+| F32 | 32 | ~28GB | Best | Slow | Reference only |
+| F16 | 16 | ~14GB | Excellent | Slow | High-end GPUs |
+| Q8_0 | 8 | ~7GB | Very good | Fast | When you have RAM |
+| Q6_K | 6 | ~5.5GB | Great | Fast | Quality-focused |
+| Q5_K_M | 5 | ~4.8GB | Very good | Fast | Good balance |
+| **Q4_K_M** | 4 | ~4GB | Good | Fast | **Recommended default** |
+| Q4_K_S | 4 | ~3.8GB | Good | Fast | Slightly smaller |
+| Q3_K_M | 3 | ~3GB | Acceptable | Faster | Limited RAM |
+| Q2_K | 2 | ~2.5GB | Degraded | Fastest | Extreme constraints |
+| IQ4_XS | ~4 | ~3.6GB | Good | Fast | i-quants, smaller |
+| IQ3_XXS | ~3 | ~2.6GB | Fair | Fast | Aggressive compression |
+
+**Recommendations:**
+
+- **Q4_K_M**: Best all-around choice for most users
+- **Q5_K_M**: When quality matters more than size
+- **Q6_K / Q8_0**: Maximum quality within quantization
+- **Q3_K_M / IQ3_XXS**: When RAM is severely limited
+- **Avoid Q2_K** unless absolutely necessary (significant quality loss)
+
+### Convert from Hugging Face
+
+```bash
+# Download model (or use local path)
+# Example: meta-llama/Llama-3.2-3B-Instruct
+
+# Convert to GGUF (F16)
+python convert_hf_to_gguf.py \
+  /path/to/hf-model \
+  --outfile model-f16.gguf \
+  --outtype f16
+
+# Or directly to a quantized format
+python convert_hf_to_gguf.py \
+  /path/to/hf-model \
+  --outfile model-Q8_0.gguf \
+  --outtype q8_0
+```
+
+### Quantize with llama-quantize
+
+```bash
+# Basic quantization
+./build/bin/llama-quantize input.gguf output.gguf <type>
+
+# Examples
+./build/bin/llama-quantize model-f16.gguf model-Q4_K_M.gguf Q4_K_M
+./build/bin/llama-quantize model-f16.gguf model-Q5_K_M.gguf Q5_K_M
+./build/bin/llama-quantize model-f16.gguf model-Q8_0.gguf Q8_0
+
+# With specific thread count
+./build/bin/llama-quantize model-f16.gguf model-Q4_K_M.gguf Q4_K_M 8
+```
+
+### Importance matrix quantization
+
+Use an importance matrix (imatrix) for better quality at low bit-widths:
+
+```bash
+# Generate importance matrix from calibration data
+./build/bin/llama-imatrix \
+  -m model-f16.gguf \
+  -f calibration_data.txt \
+  -o imatrix.dat
+
+# Quantize with importance matrix
+./build/bin/llama-quantize \
+  --imatrix imatrix.dat \
+  model-f16.gguf \
+  model-IQ4_XS.gguf \
+  IQ4_XS
+```
+
+Calibration data should be representative text (Wikipedia excerpts, code samples, etc.).
+
+### Verify and test
+
+```bash
+# Check the quantized model
+./build/bin/llama-cli -m model-Q4_K_M.gguf \
+  -p "The meaning of life is" -n 50
+
+# Compare outputs
+./build/bin/llama-cli -m model-f16.gguf -p "Hello" -n 20
+./build/bin/llama-cli -m model-Q4_K_M.gguf -p "Hello" -n 20
+
+# Measure perplexity (quality metric)
+./build/bin/llama-perplexity -m model-Q4_K_M.gguf -f test.txt
+```
+
+---
+
+## Cost savings guide
+
+- **Don't over-quantize**: Q4_K_M is usually the sweet spot
+- **Batch quantize**: Create multiple quantization levels and test before deploying
+- **Use imatrix** for Q3 and below—improves quality significantly
+- **Share GGUF files**: Pre-quantized models save compute for everyone
+- Many quantized models are already available on Hugging Face—check before quantizing yourself
+
+---
+
+## Privacy guide
+
+- Quantization happens locally—no data sent anywhere
+- The process only uses the model weights (no user data involved)
+- Quantized models can be shared without privacy concerns (they're just compressed weights)
+
+---
+
+## Security guide
+
+- Verify source models before conversion (check hashes, use trusted repos)
+- GGUF files can contain arbitrary metadata—inspect before running untrusted files:
+
+```bash
+# Inspect GGUF metadata
+python -c "
+from gguf import GGUFReader
+reader = GGUFReader('model.gguf')
+for key in reader.fields:
+    print(f'{key}: {reader.fields[key].data}')
+"
+```
+
+- Store original FP16/F32 models if you need to re-quantize later
+
+---
+
+## Appendix
+
+**Quantization decision tree:**
+
+```text
+Have 24GB+ VRAM? → Q6_K or Q8_0
+Have 8-16GB VRAM? → Q4_K_M or Q5_K_M
+Have 4-8GB VRAM? → Q4_K_S or Q3_K_M
+Have <4GB VRAM? → IQ3_XXS or Q2_K (with caveats)
+```
+
+**Quick commands**
+
+```bash
+# Convert HF → GGUF
+python convert_hf_to_gguf.py ./hf-model --outfile model.gguf
+
+# Quantize
+./llama-quantize model-f16.gguf model-Q4_K_M.gguf Q4_K_M
+
+# Test
+./llama-cli -m model-Q4_K_M.gguf -p "Hello" -n 50
+```
+
+**File size reference (7B model)**
+
+| Quantization | Approximate Size |
+| ------------ | ---------------- |
+| F16 | 14 GB |
+| Q8_0 | 7 GB |
+| Q6_K | 5.5 GB |
+| Q5_K_M | 4.8 GB |
+| Q4_K_M | 4.0 GB |
+| Q3_K_M | 3.0 GB |
+| IQ3_XXS | 2.6 GB |
+
+**See also**
+
+- [llamacpp-cli.md](./llamacpp-cli.md) — run quantized models
+- [llamacpp-server.md](./llamacpp-server.md) — serve quantized models
+- [llama.cpp quantize README](https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md)
