@@ -218,5 +218,5 @@ DO_NOT_TRACK=1
 [5]: https://docs.vllm.ai/en/stable/api/vllm/entrypoints/llm/ "vLLM LLM API"
 [6]: https://docs.vllm.ai/serving/parallelism_scaling.html "vLLM parallelism and scaling"
 [7]: https://docs.vllm.ai/en/latest/features/quantization/ "vLLM quantization"
-[8]: https://docs.vllm.ai/en/v0.9.1/usage/usage_stats.html "vLLM usage stats"
+[8]: https://docs.vllm.ai/en/latest/usage/usage_stats/ "vLLM usage stats"
 [9]: https://huggingface.co/zai-org/GLM-4.7-Flash/blob/main/README.md "GLM-4.7-Flash model card"
