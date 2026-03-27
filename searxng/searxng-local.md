@@ -91,7 +91,7 @@ If you want a full local stack, start Ollama so Goose or OpenCode can use local 
 
 ```bash
 ollama serve
-ollama pull qwen3.5:3b
+ollama pull qwen3.5:4b
 ```
 
 Quick checks:
@@ -129,7 +129,7 @@ If you also want Goose to use Ollama for inference:
 ```bash
 export GOOSE_PROVIDER=ollama
 export OLLAMA_HOST=http://localhost:11434
-export GOOSE_MODEL=qwen3.5:3b
+export GOOSE_MODEL=qwen3.5:4b
 goose session --name private-search
 ```
 
@@ -150,14 +150,14 @@ Add the SearXNG MCP server and optional Ollama provider to `~/.config/opencode/o
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3.5:3b": {
-          "name": "Qwen 3.5 3B (local)"
+        "qwen3.5:4b": {
+          "name": "Qwen 3.5 4B (local)"
         }
       }
     }
   },
-  "model": "ollama/qwen3.5:3b",
-  "small_model": "ollama/qwen3.5:3b",
+  "model": "ollama/qwen3.5:4b",
+  "small_model": "ollama/qwen3.5:4b",
   "mcp": {
     "searxng": {
       "type": "local",
