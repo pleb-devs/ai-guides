@@ -58,8 +58,8 @@ ollama serve   # starts the API at http://localhost:11434 (native API base: /api
 ### 3) Pull a starter model
 
 ```bash
-ollama pull qwen3.5:3b  # download only
-ollama run qwen3.5:3b   # downloads (first run) and opens an interactive chat
+ollama pull qwen3.5:4b  # download only
+ollama run qwen3.5:4b   # downloads (first run) and opens an interactive chat
 ```
 
 Confirm the API is live:
@@ -67,21 +67,21 @@ Confirm the API is live:
 ```bash
 curl http://localhost:11434/api/generate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"qwen3.5:3b","prompt":"Say hello","stream":false}'
+  -d '{"model":"qwen3.5:4b","prompt":"Say hello","stream":false}'
 ```
 
 <img width="962" height="710" alt="image" src="https://github.com/user-attachments/assets/67127c7e-e82c-4934-bf65-b4887ca9167a" />
 
-To point an agent (e.g., Goose) at Ollama, use `http://localhost:11434` and the exact model name (e.g., `qwen3.5:3b`). Many tools also support OpenAI‑compatible endpoints at `http://localhost:11434/v1/` (API key required by most clients, but ignored by Ollama).
+To point an agent (e.g., Goose) at Ollama, use `http://localhost:11434` and the exact model name (e.g., `qwen3.5:4b`). Many tools also support OpenAI‑compatible endpoints at `http://localhost:11434/v1/` (API key required by most clients, but ignored by Ollama).
 
 ---
 
 ## Beginner usage
 
 1) Ensure the server is running (Ollama app open, or `ollama serve`)
-2) Pull a model: `ollama pull qwen3.5:3b` (or `ollama run qwen3.5:3b` to chat)
+2) Pull a model: `ollama pull qwen3.5:4b` (or `ollama run qwen3.5:4b` to chat)
 3) Sanity check with curl (see above)
-4) In your agent, select the local provider and set model=`qwen3.5:3b` (or use OpenAI‑compatible mode with base URL `http://localhost:11434/v1/`).
+4) In your agent, select the local provider and set model=`qwen3.5:4b` (or use OpenAI‑compatible mode with base URL `http://localhost:11434/v1/`).
 
 ---
 
@@ -92,10 +92,10 @@ To point an agent (e.g., Goose) at Ollama, use `http://localhost:11434` and the 
 ```bash
 ollama ls                   # installed models
 ollama ps                   # running models
-ollama pull qwen3.5:1.7b   # download another small variant
-ollama show qwen3.5:3b     # details (size, families)
-ollama stop qwen3.5:3b     # unload from memory
-ollama rm qwen3.5:3b       # remove when space is tight
+ollama pull qwen3.5:2b   # download another small variant
+ollama show qwen3.5:4b     # details (size, families)
+ollama stop qwen3.5:4b     # unload from memory
+ollama rm qwen3.5:4b       # remove when space is tight
 ```
 
 ### Custom models (Modelfile)
@@ -103,7 +103,7 @@ ollama rm qwen3.5:3b       # remove when space is tight
 Create a `Modelfile` to pin a base model and parameters:
 
 ```text
-FROM qwen3.5:3b
+FROM qwen3.5:4b
 PARAMETER temperature 0.2
 SYSTEM You are a concise assistant for code reviews.
 ```
@@ -141,7 +141,7 @@ If you're running Ollama as an app/service (common), set `OLLAMA_HOST` for that 
 
 ```bash
 docker run -d --name ollama -p 11434:11434 -v ollama:/root/.ollama ollama/ollama
-docker exec -it ollama ollama run qwen3.5:3b
+docker exec -it ollama ollama run qwen3.5:4b
 ```
 
 ---
