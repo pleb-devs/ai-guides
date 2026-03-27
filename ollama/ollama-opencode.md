@@ -42,7 +42,7 @@ OpenCode can connect to any OpenAI-compatible provider. Ollama exposes one at `h
 ```bash
 ollama --version
 ollama serve
-ollama pull qwen3.5:3b
+ollama pull qwen3.5:4b
 ```
 
 Quick API checks:
@@ -71,14 +71,14 @@ Create or edit `~/.config/opencode/opencode.json`:
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3.5:3b": {
-          "name": "Qwen 3.5 3B (local)"
+        "qwen3.5:4b": {
+          "name": "Qwen 3.5 4B (local)"
         }
       }
     }
   },
-  "model": "ollama/qwen3.5:3b",
-  "small_model": "ollama/qwen3.5:3b"
+  "model": "ollama/qwen3.5:4b",
+  "small_model": "ollama/qwen3.5:4b"
 }
 ```
 
@@ -90,7 +90,7 @@ Create `./opencode.json` in the repo you want OpenCode to use. OpenCode merges i
 
 1. Launch OpenCode: `opencode`
 2. Run `/models`
-3. Select `ollama/qwen3.5:3b`
+3. Select `ollama/qwen3.5:4b`
 
 ---
 
@@ -116,7 +116,7 @@ opencode
 
 Inside OpenCode:
 
-- `/models` → choose `ollama/qwen3.5:3b`
+- `/models` → choose `ollama/qwen3.5:4b`
 - Ask: `Summarize this codebase and point out the highest-risk area`
 
 ---
@@ -138,13 +138,13 @@ Use a per-project `opencode.json` when you want one repo pinned to local models 
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3.5:3b": { "name": "Qwen 3.5 3B (local)" },
-        "qwen3.5:7b": { "name": "Qwen 3.5 7B (local)" }
+        "qwen3.5:4b": { "name": "Qwen 3.5 4B (local)" },
+        "qwen3.5:9b": { "name": "Qwen 3.5 9B (local)" }
       }
     }
   },
-  "model": "ollama/qwen3.5:7b",
-  "small_model": "ollama/qwen3.5:3b",
+  "model": "ollama/qwen3.5:9b",
+  "small_model": "ollama/qwen3.5:4b",
   "share": "disabled"
 }
 ```
@@ -166,12 +166,12 @@ Keep a cloud model available for difficult refactors while making Ollama your ch
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3.5:3b": { "name": "Qwen 3.5 3B (local)" }
+        "qwen3.5:4b": { "name": "Qwen 3.5 4B (local)" }
       }
     }
   },
   "model": "anthropic/claude-sonnet-4-5",
-  "small_model": "ollama/qwen3.5:3b"
+  "small_model": "ollama/qwen3.5:4b"
 }
 ```
 
@@ -227,7 +227,7 @@ Use `/models` to switch when a task needs more reasoning depth.
 
 ```bash
 ollama ls
-ollama show qwen3.5:3b
+ollama show qwen3.5:4b
 curl http://localhost:11434/v1/models
 opencode
 ```
