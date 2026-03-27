@@ -49,8 +49,8 @@ ollama serve   # runs the HTTP API
 ### 3) Pull and run a model
 
 ```bash
-ollama pull qwen3.5:3b  # download only
-ollama run qwen3.5:3b   # downloads (if needed) and opens an interactive chat
+ollama pull qwen3.5:4b  # download only
+ollama run qwen3.5:4b   # downloads (if needed) and opens an interactive chat
 ```
 
 ---
@@ -58,8 +58,8 @@ ollama run qwen3.5:3b   # downloads (if needed) and opens an interactive chat
 ## Beginner usage
 
 1) `ollama serve`
-2) `ollama run qwen3.5:3b`
-3) Point your agent to `http://localhost:11434` and set model=`qwen3.5:3b`.
+2) `ollama run qwen3.5:4b`
+3) Point your agent to `http://localhost:11434` and set model=`qwen3.5:4b`.
 
 ---
 
@@ -71,12 +71,12 @@ ollama run qwen3.5:3b   # downloads (if needed) and opens an interactive chat
 # Generate (single prompt)
 curl http://localhost:11434/api/generate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"qwen3.5:3b","prompt":"Hello from Ollama","stream":false}'
+  -d '{"model":"qwen3.5:4b","prompt":"Hello from Ollama","stream":false}'
 
 # Chat (multi‑turn)
 curl http://localhost:11434/api/chat \
   -H 'Content-Type: application/json' \
-  -d '{"model":"qwen3.5:3b","messages":[{"role":"user","content":"Summarize: local model hosting"}],"stream":false}'
+  -d '{"model":"qwen3.5:4b","messages":[{"role":"user","content":"Summarize: local model hosting"}],"stream":false}'
 ```
 
 ### Model lifecycle
@@ -94,7 +94,7 @@ ollama rm <model[:tag]>     # free disk space
 
 ```text
 # Modelfile
-FROM qwen3.5:3b
+FROM qwen3.5:4b
 PARAMETER temperature 0.1
 SYSTEM You are a terse code fixer.
 ```
@@ -129,7 +129,7 @@ journalctl -u ollama -f
 
 ```bash
 docker run -d --name ollama -p 11434:11434 -v ollama:/root/.ollama ollama/ollama
-docker exec -it ollama ollama run qwen3.5:3b
+docker exec -it ollama ollama run qwen3.5:4b
 ```
 
 - Bind to a different interface/port if needed:
