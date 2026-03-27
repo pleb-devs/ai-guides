@@ -122,12 +122,12 @@ goose session
 
 For Goose (coding agent), use capable instruction-tuned models:
 
-**Recommended models (as of 2025):**
+**Recommended model families for Goose:**
 
-- **Qwen2.5-Coder** (7B/14B/32B) — excellent code understanding
-- **DeepSeek-Coder-V2** — strong reasoning
-- **CodeLlama** variants — code-specialized
-- **Mistral/Mixtral Instruct** — good general + code
+- **Qwen2.5-Coder** (7B/14B/32B) — still one of the safest local coding defaults
+- **Qwen3** (4B/8B/14B+) — newer general-purpose instruct models with strong local performance
+- **DeepSeek-R1-Distill-Qwen** — useful when you want stronger reasoning from a local model
+- **Mistral / Mistral Small / Mixtral Instruct** — solid general-purpose fallback options
 
 **Quantization for agent work:**
 
