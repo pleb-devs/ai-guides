@@ -32,7 +32,7 @@ Ollama side
 ```bash
 ollama --version
 ollama serve
-ollama pull qwen3.5:3b
+ollama pull qwen3.5:4b
 ```
 
 Quick API check
@@ -40,18 +40,18 @@ Quick API check
 ```bash
 curl http://localhost:11434/api/generate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"qwen3.5:3b","prompt":"hello","stream":false}'
+  -d '{"model":"qwen3.5:4b","prompt":"hello","stream":false}'
 ```
 
 Goose side
 
-- Desktop: configure the **Ollama** provider and set API Host to `http://localhost:11434`, then select a tool-calling-capable model (e.g., `qwen3.5:3b`).
+- Desktop: configure the **Ollama** provider and set API Host to `http://localhost:11434`, then select a tool-calling-capable model (e.g., `qwen3.5:4b`).
 - CLI (one-off via env vars):
 
 ```bash
 export GOOSE_PROVIDER=ollama
 export OLLAMA_HOST=http://localhost:11434
-export GOOSE_MODEL=qwen3.5:3b
+export GOOSE_MODEL=qwen3.5:4b
 goose session --name local-ollama
 ```
 
@@ -60,7 +60,7 @@ goose session --name local-ollama
 ## Beginner usage
 
 1) Confirm Ollama is serving: `curl http://localhost:11434/api/version`
-2) Ensure your model is pulled: `ollama pull qwen3.5:3b`
+2) Ensure your model is pulled: `ollama pull qwen3.5:4b`
 3) Create a new Goose session using the **Ollama** provider.
 4) Prompt once; verify latency and correctness.
 
@@ -103,7 +103,7 @@ goose session --name local-ollama
 
 ```bash
 ollama ls
-ollama show qwen3.5:3b
+ollama show qwen3.5:4b
 goose session --name local-ollama
 ```
 
