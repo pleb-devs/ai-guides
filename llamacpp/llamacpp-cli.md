@@ -101,9 +101,9 @@ llama-cli -m ./my-model-Q4_K_M.gguf -p "Hello, world!"
 
 Popular model sources:
 
-- [TheBloke](https://huggingface.co/TheBloke) — extensive GGUF collection
 - [ggml-org](https://huggingface.co/ggml-org) — official reference models
-- [bartowski](https://huggingface.co/bartowski) — high-quality quantizations
+- [bartowski](https://huggingface.co/bartowski) — high-quality GGUF quantizations
+- [unsloth](https://huggingface.co/unsloth) — widely used GGUF releases and model packaging
 
 ---
 
@@ -198,7 +198,7 @@ echo "Summarize: local AI" | llama-cli -m model.gguf -n 200
 llama-cli -hf Qwen/Qwen2.5-Coder-7B-Instruct-GGUF
 
 # Specify quantization
-llama-cli -hf TheBloke/Mistral-7B-Instruct-v0.2-GGUF:Q4_K_M
+llama-cli -hf bartowski/Qwen2.5-Coder-7B-Instruct-GGUF:Q4_K_M
 
 # Set custom endpoint (ModelScope, etc.)
 export MODEL_ENDPOINT=https://modelscope.cn/api/v1
