@@ -31,21 +31,21 @@ Goose supports an **Ollama** provider that connects to your local Ollama server 
 
 ```bash
 ollama serve
-ollama pull qwen3.5:3b
+ollama pull qwen3.5:4b
 ```
 
 1) Configure Goose
 
 Desktop
 
-- Configure the **Ollama** provider and set API Host to `http://localhost:11434`, then select a tool-calling-capable model (e.g., `qwen3.5:3b`).
+- Configure the **Ollama** provider and set API Host to `http://localhost:11434`, then select a tool-calling-capable model (e.g., `qwen3.5:4b`).
 
 CLI
 
 ```bash
 export GOOSE_PROVIDER=ollama
 export OLLAMA_HOST=http://localhost:11434
-export GOOSE_MODEL=qwen3.5:3b
+export GOOSE_MODEL=qwen3.5:4b
 goose session --name local-model
 ```
 
@@ -98,7 +98,7 @@ goose session --name local-model
 
 ```bash
 ollama ls
-ollama show qwen3.5:3b
+ollama show qwen3.5:4b
 goose session --name local-model
 ```
 
