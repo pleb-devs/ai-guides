@@ -69,7 +69,7 @@ choco install opencode
 scoop install opencode
 
 # Other options
-mise use -g opencode
+mise use -g github:anomalyco/opencode
 nix run nixpkgs#opencode
 ```
 
