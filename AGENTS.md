@@ -42,3 +42,10 @@ This repository hosts practical guides for coding agents and AI clients. Follow 
 ## Agent‑Specific Instructions
 
 - When adding a new tool guide, mirror existing examples (`goose/*`, `opencode/*`) and add it to the "Guides" list in `README.md`.
+
+## Engineering Principles
+
+**1. Think Before Coding**: State assumptions, surface uncertainty, and present tradeoffs.
+**2. Simplicity First**: Minimum code required. No speculative features or unnecessary abstractions.
+**3. Surgical Changes**: Touch only what is necessary. Match existing style.
+**4. Goal-Driven Execution**: Define success via verifiable tests/checks.

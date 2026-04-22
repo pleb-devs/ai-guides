@@ -9,7 +9,7 @@ This folder indexes the Goose guides and how to use them together. Use this as a
 - [goose-cli.md](./goose-cli.md) — CLI guide for headless/CI
   - Sessions and one‑off runs, recipes and scheduling, projects, CI/CD usage, environment variables, and audit/export tips.
 - [goose-ollama.md](./goose-ollama.md) — Goose + Ollama integration
-  - Connect Goose (Desktop/CLI) to a local Ollama server. Includes OpenAI‑compatible base URL (`/v1`) configuration, model naming, and common errors.
+  - Connect Goose (Desktop/CLI) to a local Ollama server. Includes provider setup, CLI env vars, tool shim notes, and local security guardrails.
 - [goose-searxng.md](./goose-searxng.md) — Goose + SearXNG private search
   - Run SearXNG locally and add it as a custom MCP extension for private web search.
 - [recipes/](./recipes/) — Ready-to-use Goose recipes

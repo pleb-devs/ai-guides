@@ -1,6 +1,6 @@
-# Configure Goose with a Local Ollama Provider — PlebDevs Integration
+# Configure Goose with a Local Ollama Provider - PlebDevs Integration
 
-> Connect Goose (Desktop or CLI) to models hosted by your local Ollama server at `http://localhost:11434`. Run fully local with your preferred models.
+> Connect Goose to models hosted by your local **Ollama** server at `http://localhost:11434`. Keep repo context on-device and run fully local when you want privacy, lower cost, or offline-ish workflows.
 
 ---
 
@@ -8,8 +8,13 @@
 
 - [Overview](#overview)
 - [Setup](#setup)
+  - [Start Ollama locally](#1-start-ollama-locally)
+  - [Configure Goose](#2-configure-goose)
 - [Beginner usage](#beginner-usage)
 - [Pro usage](#pro-usage)
+  - [Persistent CLI config](#persistent-cli-config)
+  - [Tool shim for non-tool-calling models](#tool-shim-for-non-tool-calling-models)
+  - [Operational tips](#operational-tips)
 - [Cost savings guide](#cost-savings-guide)
 - [Privacy guide](#privacy-guide)
 - [Security guide](#security-guide)
@@ -19,87 +24,172 @@
 
 ## Overview
 
-Goose supports an **Ollama** provider that connects to your local Ollama server at `http://localhost:11434`. (Ollama also exposes OpenAI‑compatible endpoints under `/v1/` for tools that need it.)
+Goose includes an Ollama provider for local models served from `http://localhost:11434`. That means you can keep the same Goose Desktop or CLI workflow, approval modes, extensions, and project context while running a model on your own machine.
 
-<img width="1144" height="709" alt="image" src="https://github.com/user-attachments/assets/ddf3a50c-d530-489e-a36c-bb90bb0399e5" />
+**Why connect Goose to Ollama?**
+
+- Simple local setup with one background server
+- No per-token API cost after the model is downloaded
+- Good fit for private repos or offline-ish workflows
+- Easy model switching as your hardware or task changes
 
 ---
 
 ## Setup
 
-1) Start Ollama locally
+### 1) Start Ollama locally
 
 ```bash
+ollama --version
 ollama serve
-ollama pull qwen3.5:4b
+ollama pull qwen2.5
 ```
 
-1) Configure Goose
+Quick checks:
 
-Desktop
+```bash
+curl http://localhost:11434/api/version
+ollama ls
+```
 
-- Configure the **Ollama** provider and set API Host to `http://localhost:11434`, then select a tool-calling-capable model (e.g., `qwen3.5:4b`).
+### 2) Configure Goose
 
-CLI
+**Desktop**
+
+Open Goose, configure the `Ollama` provider, keep the host as `http://localhost:11434`, and choose an installed local model such as `qwen2.5`.
+
+**CLI**
+
+Run the interactive setup:
+
+```bash
+goose configure
+```
+
+Or launch Goose with explicit local-provider environment variables:
 
 ```bash
 export GOOSE_PROVIDER=ollama
 export OLLAMA_HOST=http://localhost:11434
-export GOOSE_MODEL=qwen3.5:4b
-goose session --name local-model
+export GOOSE_MODEL=qwen2.5
+export GOOSE_MODE=approve
+goose session --name local-ollama
 ```
+
+Goose stores shared Desktop and CLI configuration in `~/.config/goose/config.yaml`.
 
 ---
 
 ## Beginner usage
 
-1) Verify Ollama is serving: `curl http://localhost:11434/api/version`
-2) Create a new Goose session selecting your Ollama-backed provider.
-3) Send a short prompt; confirm responses are fast and consistent.
+1. Verify Ollama is serving: `curl http://localhost:11434/api/version`
+2. Confirm the model exists locally: `ollama ls`
+3. Start Goose with the Ollama provider selected
+4. Begin in `approve` mode if the repo has write access
+5. Start with a simple repo question or a small reversible task
 
-<img width="1155" height="713" alt="image" src="https://github.com/user-attachments/assets/0a95c820-4dab-4bf0-b2dd-bc9cd7b6a9a7" />
+**Quick first run**
+
+```bash
+# Terminal 1
+ollama serve
+
+# Terminal 2
+cd your-project
+goose session --name local-ollama
+```
+
+First prompts to try:
+
+- `Summarize this codebase and point out the highest-risk area`
+- `Propose one small safe refactor and tell me how to verify it`
 
 ---
 
 ## Pro usage
 
-- Use smaller local models for routine tasks; switch up per session.
-- For CLI automation, set env vars in scripts/CI and run `goose run`.
-- Keep model names pinned (e.g., custom Modelfile builds) to avoid surprises.
-- Combine with `.gooseignore` to fence sensitive paths during agent runs.
+### Persistent CLI config
+
+If you want Ollama to remain your default provider:
+
+```yaml
+GOOSE_PROVIDER: ollama
+OLLAMA_HOST: http://localhost:11434
+GOOSE_MODEL: qwen2.5
+GOOSE_MODE: approve
+```
+
+Keep that in `~/.config/goose/config.yaml` so future Desktop and CLI sessions default to local inference.
+
+### Tool shim for non-tool-calling models
+
+Goose is strongest with models that support tool calling. If you want to test a model that does not, Goose includes an experimental Ollama tool shim:
+
+```bash
+ollama pull mistral-nemo
+
+export GOOSE_TOOLSHIM=true
+export GOOSE_TOOLSHIM_OLLAMA_MODEL=mistral-nemo
+goose session --name local-toolshim
+```
+
+If local tool use becomes unreliable, start Ollama with a larger context window:
+
+```bash
+OLLAMA_CONTEXT_LENGTH=32768 ollama serve
+```
+
+### Operational tips
+
+- Keep Ollama and Goose on the same machine to minimize latency.
+- Pull models before you need them so Goose does not pause on first use.
+- Use smaller local models for exploration, summaries, and repetitive edits.
+- Add `.gooseignore` to fence secrets, generated files, and infrastructure paths.
+- If Goose misses project instructions or tool context, raise the available input budget:
+
+```bash
+export GOOSE_INPUT_LIMIT=32000
+```
 
 ---
 
 ## Cost savings guide
 
-- Prefer smaller/quantized models; keep heavier models off by default.
-- Reuse a single shared Ollama host for multiple Goose sessions.
-- Limit context sizes in prompts to reduce CPU/GPU load.
+- After the initial model download, local usage has no per-token API bill.
+- Use Ollama for repo exploration, summaries, and draft edits.
+- Reserve cloud providers for final review or harder architectural work.
+- Keep a smaller local model as your default for cheap, fast iteration.
 
 ---
 
 ## Privacy guide
 
-- With Ollama on localhost, prompts stay on-device.
-- Avoid third‑party proxies; if you must, review their privacy posture.
+- With Ollama on localhost, prompts and repo context stay on-device by default.
+- Goose config, transcripts, and exported sessions still live on your disk, so review them before sharing.
+- Prefer local providers and local extensions when you want a stricter on-device workflow.
+- On shared machines, avoid leaving unused cloud provider keys configured if your goal is local-only use.
 
 ---
 
 ## Security guide
 
-- Keep Ollama bound to `127.0.0.1`. If exposing on LAN, add firewall and proxy auth.
-- In Goose, prefer Manual/Approve modes for write‑classified tools.
+- Keep Ollama bound to `127.0.0.1`; do not expose port `11434` to the public internet.
+- In Goose, prefer `approve` or `smart_approve` for sensitive repos.
+- Use `.gooseignore` to keep secrets, credentials, and deployment files out of the agent working set.
+- If you ever proxy Ollama beyond localhost, add authentication and network controls in front of it.
 
 ---
 
 ## Appendix
 
-**Handy commands**
+**Quick refs**
 
 ```bash
 ollama ls
-ollama show qwen3.5:4b
-goose session --name local-model
+ollama show qwen2.5
+curl http://localhost:11434/api/version
+goose configure
+goose session --name local-ollama
 ```
 
-See also: `../ollama/ollama-desktop.md`, `../ollama/ollama-cli.md` for hosting details.
+See also: `./goose-cli.md`, `./goose-desktop.md`, `../ollama/ollama-cli.md`, `../ollama/ollama-desktop.md`, and `../llamacpp/llamacpp-goose.md`.
